@@ -36,7 +36,7 @@ const Skills = () => {
           Technical Skills
         </h2>
         <p className="mt-2 text-muted-foreground font-semibold text-sm italic">
-          A curated selection of my expertise in modern web and software development
+          A curated selection of my expertise in devops and backend development
         </p>
       </div>
 

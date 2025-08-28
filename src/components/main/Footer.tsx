@@ -26,19 +26,14 @@ const Footer: FC = () => {
 
   const socialLinks = [
     {
-      href: 'https://github.com/Ashlok2003',
+      href: 'https://github.com/HasanAshab',
       icon: <RxGithubLogo className="w-5 h-5" />,
       label: 'GitHub',
     },
     {
-      href: 'https://www.linkedin.com/in/ashlok2003/',
+      href: 'https://www.linkedin.com/in/hasan-ashab/',
       icon: <FaLinkedin className="w-5 h-5" />,
       label: 'LinkedIn',
-    },
-    {
-      href: 'https://x.com/ashlok2003',
-      icon: <FaTwitter className="w-5 h-5" />,
-      label: 'Twitter',
     },
   ]
 
@@ -72,9 +67,9 @@ const Footer: FC = () => {
           animate="visible"
         >
           <motion.div className="space-y-4" variants={childVariants}>
-            <h1 className="text-2xl font-extrabold bg-clip-text">Ashlok Chaudhary</h1>
+            <h1 className="text-2xl font-extrabold bg-clip-text">Hasan Ashab</h1>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Crafting scalable web apps, open-source tools, and innovative digital experiences.
+            Building scalable infrastructure aligned with company requirements, ensuring cost-efficiency without over-engineering. 
             </p>
           </motion.div>
 

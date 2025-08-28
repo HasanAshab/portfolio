@@ -19,8 +19,8 @@ const projectsData = [
     description:
       'A microservices-based e-commerce platform using AWS ECS Fargate, CI/CD, and full observability on AWS.',
     imageURL: '/shopxindia.png',
-    github: 'https://github.com/Ashlok2003/ShopxIndia',
-    live: 'https://github.com/Ashlok2003/ShopxIndia',
+    github: 'https://github.com/HasanAshab/ShopxIndia',
+    live: 'https://github.com/HasanAshab/ShopxIndia',
     icon: <IconClipboardCopy className="h-4 w-4 text-muted-foreground" />,
   },
   {
@@ -28,7 +28,7 @@ const projectsData = [
     description:
       'A social media platform with real-time chat, JWT auth, and responsive design using MERN stack.',
     imageURL: '/socialpedia.png',
-    github: 'https://github.com/Ashlok2003/Socialpedia',
+    github: 'https://github.com/HasanAshab/Socialpedia',
     live: 'https://socialpedia-tau.vercel.app/',
     icon: <IconFileBroken className="h-4 w-4 text-muted-foreground" />,
   },
@@ -36,7 +36,7 @@ const projectsData = [
     title: 'FileShareX',
     description: 'File sharing app with QR code, SMTP email integration, and clean React UI.',
     imageURL: '/filesharex.png',
-    github: 'https://github.com/Ashlok2003/File-Sharer',
+    github: 'https://github.com/HasanAshab/File-Sharer',
     live: 'https://file-sharer-sepia.vercel.app/',
     icon: <IconSignature className="h-4 w-4 text-muted-foreground" />,
   },
@@ -45,7 +45,7 @@ const projectsData = [
     description:
       'Modern portfolio built with Next.js, TailwindCSS, and ShadCN, deployed on Cloudflare Pages.',
     imageURL: '/portfolio-project.png',
-    github: 'https://github.com/Ashlok2003/portfolio',
+    github: 'https://github.com/HasanAshab/portfolio',
     live: 'https://ashlok.dev/',
     icon: <IconTableColumn className="h-4 w-4 text-muted-foreground" />,
   },
@@ -53,7 +53,7 @@ const projectsData = [
     title: 'Scheduly.AI',
     description: 'AI assistant for booking Google Calendar meetings via conversational chat.',
     imageURL: '/scheduly-ai.png',
-    github: 'https://github.com/Ashlok2003/Scheduly.AI',
+    github: 'https://github.com/HasanAshab/Scheduly.AI',
     live: 'https://scheduly-ai-client.onrender.com/',
     icon: <IconArrowWaveRightUp className="h-4 w-4 text-muted-foreground" />,
   },

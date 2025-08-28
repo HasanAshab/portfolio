@@ -237,15 +237,15 @@ export const NavbarLogo = ({ isScrolled }: { isScrolled: boolean }) => {
       aria-label="Navigate to About section"
     >
       <Image
-        src="/ashlok.jpg"
-        alt="Ashlok Chaudhary"
+        src="/profile-pic.jpg"
+        alt="Hasan Ashab"
         width={32}
         height={32}
         className="rounded-full"
       />
       {!isScrolled && (
         <span className="text-lg font-bold group-hover:text-red-500 transition-colors">
-          Ashlok Chaudhary
+          Hasan Ashab
         </span>
       )}
     </a>

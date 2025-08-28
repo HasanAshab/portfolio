@@ -11,7 +11,7 @@
 
 🌙 **By Night:** A problem-solving ninja tackling complex coding challenges 👾
 
-📫 **Reach Me At:** [chaudharyashlok@gmail.com](mailto:chaudharyashlok@gmail.com)
+📫 **Reach Me At:** [hasanashab.18205@gmail.com](mailto:hasanashab.18205@gmail.com)
 
 💡 **Fun Fact:** I love optimizing systems and finding performance bottlenecks!
 
@@ -46,8 +46,7 @@
 
 <p align="center">
   <a href="https://www.linkedin.com/in/ashlok2003/"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=for-the-badge&logo=linkedin" /></a>
-  <a href="https://github.com/ashlok2003"><img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github" /></a>
-  <a href="https://twitter.com/ashlok2003"><img src="https://img.shields.io/badge/-Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
+  <a href="https://github.com/HasanAshab"><img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github" /></a>
 </p>
 
 <p align="center" style="font-weight: 700; font-size: 22px;">🔥 <i>"Code with Passion, Design with Patience!"</i> 🚀</p>

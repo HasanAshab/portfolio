@@ -117,9 +117,9 @@ const ContactUs: FC = () => {
               <div className="space-y-5 text-foreground">
                 <div className="flex items-center gap-3">
                   <FaEnvelope className="text-primary text-lg" />
-                  <span className="text-sm font-medium select-text">chaudharyashlok@gmail.com</span>
+                  <span className="text-sm font-medium select-text">hasanashab.18205@gmail.com</span>
                   <button
-                    onClick={() => copyToClipboard('chaudharyashlok@gmail.com', 'Email')}
+                    onClick={() => copyToClipboard('hasanashab.18205@gmail.com', 'Email')}
                     className="text-muted-foreground hover:text-primary transition"
                     aria-label="Copy email"
                   >
@@ -128,9 +128,9 @@ const ContactUs: FC = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <FaSquarePhone className="text-primary text-lg" />
-                  <span className="text-sm font-medium select-text">+91 77670 12860</span>
+                  <span className="text-sm font-medium select-text">+880 16273 18919</span>
                   <button
-                    onClick={() => copyToClipboard('+91 7767012860', 'Phone number')}
+                    onClick={() => copyToClipboard('+880 16273 18919', 'Phone number')}
                     className="text-muted-foreground hover:text-primary transition"
                     aria-label="Copy phone number"
                   >
@@ -139,7 +139,7 @@ const ContactUs: FC = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <FaMapMarkerAlt className="text-primary text-lg" />
-                  <span className="text-sm font-medium select-text">Mumbai, India</span>
+                  <span className="text-sm font-medium select-text">Dhaka, Bangladesh</span>
                 </div>
               </div>
             </motion.div>
