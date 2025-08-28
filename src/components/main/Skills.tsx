@@ -14,7 +14,8 @@ const uniqueSkills: Skill[] = Array.from(
       return map
     }, new Map<string, Skill>())
     .values(),
-).sort((a, b) => a.skill_name.localeCompare(b.skill_name))
+)
+//.sort((a, b) => a.skill_name.localeCompare(b.skill_name))
 
 const Skills = () => {
   return (
