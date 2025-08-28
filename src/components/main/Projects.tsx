@@ -14,49 +14,39 @@ import { Badge } from '../ui/badge'
 import { BentoGrid, BentoGridItem } from '../ui/bento-grid'
 
 const projectsData = [
+  // {
+  //   title: 'ShopXIndia',
+  //   description:
+  //     'A microservices-based e-commerce platform using AWS ECS Fargate, CI/CD, and full observability on AWS.',
+  //   imageURL: '/shopxindia.png',
+  //   github: 'https://github.com/HasanAshab/ShopxIndia',
+  //   live: 'https://github.com/HasanAshab/ShopxIndia',
+  //   icon: <IconClipboardCopy className="h-4 w-4 text-muted-foreground" />,
+  // },
   {
-    title: 'ShopXIndia',
-    description:
-      'A microservices-based e-commerce platform using AWS ECS Fargate, CI/CD, and full observability on AWS.',
-    imageURL: '/shopxindia.png',
-    github: 'https://github.com/HasanAshab/ShopxIndia',
-    live: 'https://github.com/HasanAshab/ShopxIndia',
-    icon: <IconClipboardCopy className="h-4 w-4 text-muted-foreground" />,
+    title: 'Retail Store DevOps (AWS)',
+    description: 'A microservices-based e-commerce platform using EKS + Terraform & GitOps With ArgoCD & GitHub Actions.',
+    imageURL: '/retail-store.png',
+    github: 'https://github.com/HasanAshab/retail-store-devops',
   },
   {
-    title: 'SocialPedia',
-    description:
-      'A social media platform with real-time chat, JWT auth, and responsive design using MERN stack.',
-    imageURL: '/socialpedia.png',
-    github: 'https://github.com/HasanAshab/Socialpedia',
-    live: 'https://socialpedia-tau.vercel.app/',
-    icon: <IconFileBroken className="h-4 w-4 text-muted-foreground" />,
+    title: 'Three-Tier DevOps (AWS)',
+    description: 'A three-tier application using AWS ECS Fargate, CI/CD and CloudFront.',
+    imageURL: '/three-tier-aws.png',
+    github: 'https://github.com/HasanAshab/three-tier-devops-aws',
   },
   {
-    title: 'FileShareX',
-    description: 'File sharing app with QR code, SMTP email integration, and clean React UI.',
-    imageURL: '/filesharex.png',
-    github: 'https://github.com/HasanAshab/File-Sharer',
-    live: 'https://file-sharer-sepia.vercel.app/',
-    icon: <IconSignature className="h-4 w-4 text-muted-foreground" />,
+    title: 'Three-Tier DevOps (Azure)',
+    description: 'A three-tier application using Azure App Service and CI/CD. (includes HA, DR)',
+    imageURL: '/three-tier-azure.png',
+    github: 'https://github.com/HasanAshab/three-tier-devops-azure',
   },
   {
-    title: 'Portfolio',
-    description:
-      'Modern portfolio built with Next.js, TailwindCSS, and ShadCN, deployed on Cloudflare Pages.',
-    imageURL: '/portfolio-project.png',
-    github: 'https://github.com/HasanAshab/portfolio',
-    live: 'https://ashlok.dev/',
-    icon: <IconTableColumn className="h-4 w-4 text-muted-foreground" />,
-  },
-  {
-    title: 'Scheduly.AI',
-    description: 'AI assistant for booking Google Calendar meetings via conversational chat.',
-    imageURL: '/scheduly-ai.png',
-    github: 'https://github.com/HasanAshab/Scheduly.AI',
-    live: 'https://scheduly-ai-client.onrender.com/',
-    icon: <IconArrowWaveRightUp className="h-4 w-4 text-muted-foreground" />,
-  },
+    title: 'Ranker API (AI)',
+    description: 'A gamified Django API for self-improvement. Create challenges, earn XP, unlock titles. leaderboard. Notifications keep users engaged. (UI NOT READY YET)',
+    imageURL: '/ranker-api.webp',
+    github: 'https://github.com/HasanAshab/ranker-api',
+  }
 ]
 
 const LiveIndicator = () => (
@@ -105,15 +95,17 @@ const Projects = () => {
                     </a>
                   </Badge>
 
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-0.5 text-xs font-medium text-foreground shadow-sm transition-colors hover:bg-muted hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  >
-                    <LiveIndicator />
-                    Live
-                  </a>
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-0.5 text-xs font-medium text-foreground shadow-sm transition-colors hover:bg-muted hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    >
+                      <LiveIndicator />
+                      Live
+                    </a>
+                  )}
                 </div>
               </div>
             }
@@ -129,7 +121,7 @@ const Projects = () => {
                 />
               </div>
             }
-            icon={project.icon}
+            // icon={project.icon}
             className={i === 3 || i === 6 ? 'md:col-span-2' : ''}
           />
         ))}
