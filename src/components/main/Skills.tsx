@@ -41,7 +41,7 @@ const Skills = () => {
       </div>
 
       <div className="w-full max-w-6xl">
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
           {uniqueSkills.map((skill, index) => (
             <motion.div
               key={skill.skill_name}
@@ -53,15 +53,15 @@ const Skills = () => {
             >
               <SkillDataProvider
                 src={skill.Image}
-                width={40}
-                height={40}
+                width={50}
+                height={50}
                 index={index}
-                className="group-hover:scale-110 transition-transform duration-200"
+                className="group-active:scale-110 group-hover:scale-110 transition-transform duration-200"
               />
-              <span className="absolute top-full mt-2 text-xs font-medium text-foreground bg-background px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow z-1">
+              <span className="absolute top-full mt-2 text-xs font-medium text-foreground bg-background px-2 py-1 rounded opacity-0 group-active:opacity-100 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow">
                 {skill.skill_name}
               </span>
-              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-primary/10 to-transparent" />
+              <div className="absolute inset-0 rounded-xl opacity-0 group-active:opacity-100 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-primary/10 to-transparent" />
             </motion.div>
           ))}
         </div>
