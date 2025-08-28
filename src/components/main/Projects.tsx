@@ -95,9 +95,9 @@ const Projects = () => {
                     </a>
                   </Badge>
 
-                  {project.live && (
+                  {"live" in project && (
                     <a
-                      href={project.live}
+                      href={project.live as string}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-0.5 text-xs font-medium text-foreground shadow-sm transition-colors hover:bg-muted hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/50"
