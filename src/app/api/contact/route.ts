@@ -54,7 +54,7 @@ export async function POST(req: Request) {
 
   try {
     const { error } = await resend.emails.send({
-      from: `Contact Form <no-reply@ashlok.dev>`,
+      from: `Contact Form <no-reply@hasanashab.dev>`,
       to: ['hasanashab.18205@gmail.com'],
       replyTo: email,
       subject: sanitizedSubject,
@@ -68,7 +68,7 @@ export async function POST(req: Request) {
     ${sanitizedMessage.replace(/\n/g, '<br />')}
   </blockquote>
   <hr />
-  <p style="font-size: 0.85rem; color: #666;">Sent via portfolio contact form on ashlok.dev</p>
+  <p style="font-size: 0.85rem; color: #666;">Sent via portfolio contact form on hasanashab.dev</p>
 `,
     })
 
