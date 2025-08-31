@@ -14,24 +14,9 @@ import { Badge } from '../ui/badge'
 import { BentoGrid, BentoGridItem } from '../ui/bento-grid'
 
 const projectsData = [
-  // {
-  //   title: 'ShopXIndia',
-  //   description:
-  //     'A microservices-based e-commerce platform using AWS ECS Fargate, CI/CD, and full observability on AWS.',
-  //   imageURL: '/shopxindia.png',
-  //   github: 'https://github.com/HasanAshab/ShopxIndia',
-  //   live: 'https://github.com/HasanAshab/ShopxIndia',
-  //   icon: <IconClipboardCopy className="h-4 w-4 text-muted-foreground" />,
-  // },
-  {
-    title: 'Retail Store DevOps (AWS)',
-    description: 'A microservices-based e-commerce platform using EKS + Terraform & GitOps With ArgoCD & GitHub Actions.',
-    imageURL: '/retail-store.png',
-    github: 'https://github.com/HasanAshab/retail-store-devops',
-  },
   {
     title: 'Three-Tier DevOps (AWS)',
-    description: 'A three-tier application using AWS ECS Fargate, CI/CD and CloudFront.',
+    description: 'A three-tier application using AWS ECS Fargate, CI/CD and CloudFront. Custom domain + SSL configured (Route53, ACM)',
     imageURL: '/three-tier-aws.png',
     github: 'https://github.com/HasanAshab/three-tier-devops-aws',
   },
@@ -40,6 +25,18 @@ const projectsData = [
     description: 'A three-tier application using Azure App Service and CI/CD. (includes HA, DR)',
     imageURL: '/three-tier-azure.png',
     github: 'https://github.com/HasanAshab/three-tier-devops-azure',
+  },
+  {
+    title: 'Docker Showcase',
+    description: 'A collection of Docker and Docker Compose examples. Includes single services (Nginx, Postgres, Redis) and multi-service stacks (Flask + Redis, Django + Postgres, MERN/MEAN stack, Fullstack apps).',
+    imageURL: '/docker-showcase.png',
+    github: 'https://github.com/HasanAshab/docker-showcase',
+  },
+  {
+    title: 'Retail Store DevOps (AWS)',
+    description: 'A microservices-based e-commerce platform using EKS + Terraform & GitOps With ArgoCD & GitHub Actions.',
+    imageURL: '/retail-store.png',
+    github: 'https://github.com/HasanAshab/retail-store-devops',
   },
   {
     title: 'Ranker API (AI)',
