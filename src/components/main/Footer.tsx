@@ -37,7 +37,12 @@ const Footer: FC = () => {
     },
   ]
 
-  const quickLinks = ['About', 'Skills', 'Projects']
+  const quickLinks = [
+    { name: 'About' },
+    { name: 'Skills' },
+    { name: 'Projects' },
+    { name: 'Blogs', href: 'https://medium.com/@hasan-ashab' },
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -79,13 +84,13 @@ const Footer: FC = () => {
             </h2>
             <ul className="space-y-2 text-sm">
               {quickLinks.map((item) => (
-                <li key={item}>
+                <li key={item.name}>
                   <a
-                    href={`#${item.toLowerCase()}`}
+                    href={item.href || `#${item.name.toLowerCase()}`}
                     className="hover:text-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary"
-                    aria-label={`Navigate to ${item} section`}
+                    aria-label={`Navigate to ${item.name} section`}
                   >
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               ))}

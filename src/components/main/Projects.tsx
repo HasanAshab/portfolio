@@ -19,6 +19,7 @@ const projectsData = [
     description: 'A three-tier application using AWS ECS Fargate, CI/CD and CloudFront. Custom domain + SSL configured (Route53, ACM)',
     imageURL: '/three-tier-aws.png',
     github: 'https://github.com/HasanAshab/three-tier-devops-aws',
+    blog: 'https://medium.com/@hasan-ashab/cost-optimized-three-tier-architecture-on-aws-with-devops-20fd341648a0',
   },
   {
     title: 'Three-Tier DevOps (Azure)',
@@ -38,11 +39,11 @@ const projectsData = [
     imageURL: '/chattingo.png',
     github: 'https://github.com/HasanAshab/chattingo',
     video: 'https://youtu.be/DD1U_LmmRw8',
-    blog: 'https://dev.to/hasan_ashab/my-3-day-hackathon-journey-building-a-cicd-pipeline-from-scratch-4ifp',
+    blog: 'https://medium.com/@hasan-ashab/my-3-day-hackathon-journey-building-a-ci-cd-pipeline-from-scratch-bd51a90d39c8',
   },
   {
     title: 'Docker Showcase',
-    description: 'A collection of Docker and Docker Compose examples. Includes single services (Nginx, Postgres, Redis) and multi-service stacks (Flask + Redis, Django + Postgres, MERN/MEAN stack, Fullstack apps).',
+    description: 'A collection of Docker and Docker Compose examples. Includes multi-service stacks (e.g. MERN, MEAN, LAMP).',
     imageURL: '/docker-showcase.png',
     github: 'https://github.com/HasanAshab/docker-showcase',
   },
