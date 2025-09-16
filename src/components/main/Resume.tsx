@@ -1,28 +1,26 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
-import { FaDownload } from 'react-icons/fa'
-
-const Document = dynamic(() => import('react-pdf').then((mod) => mod.Document), { ssr: false })
-const Page = dynamic(() => import('react-pdf').then((mod) => mod.Page), { ssr: false })
-
-import 'react-pdf/dist/Page/AnnotationLayer.css'
-import 'react-pdf/dist/Page/TextLayer.css'
+import { useState } from 'react'
+import { FaDownload, FaExternalLinkAlt } from 'react-icons/fa'
 
 const ResumeSection = () => {
+  const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    import('react-pdf').then(({ pdfjs }) => {
-      pdfjs.GlobalWorkerOptions.workerSrc =
-        'https://cdn.jsdelivr.net/npm/pdfjs-dist@5.3.31/build/pdf.worker.min.mjs'
-    })
-  }, [])
+  // Convert Google Docs edit URL to embeddable format
+  const googleDocsUrl = 'https://docs.google.com/document/d/147fIVr0h67cWMlcfYRiU-DhmwO20NrS_2EeXnJaYpe4/edit?tab=t.0'
+  const documentId = googleDocsUrl.match(/\/d\/([a-zA-Z0-9-_]+)/)?.[1]
+  const embedUrl = `https://docs.google.com/document/d/${documentId}/preview`
+  const pdfUrl = `https://docs.google.com/document/d/${documentId}/export?format=pdf`
 
-  const onDocumentLoadError = (error: Error) => {
-    setError(error.message)
+  const handleIframeLoad = () => {
+    setIsLoading(false)
+  }
+
+  const handleIframeError = () => {
+    setError('Failed to load resume from Google Docs')
+    setIsLoading(false)
   }
 
   return (
@@ -50,38 +48,68 @@ const ResumeSection = () => {
         viewport={{ once: true }}
         className="w-full max-w-4xl bg-card border border-border rounded-lg shadow-lg overflow-hidden"
       >
-        <div className="relative w-full overflow-y-auto">
+        <div className="relative w-full h-[800px] overflow-hidden">
+          {isLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
+              <div className="text-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-2"></div>
+                <p className="text-muted-foreground">Loading resume...</p>
+              </div>
+            </div>
+          )}
+
           {error ? (
-            <p className="text-destructive text-center text-lg p-4">Failed to load PDF: {error}</p>
+            <div className="flex flex-col items-center justify-center h-full p-8 text-center">
+              <p className="text-destructive text-lg mb-4">{error}</p>
+              <motion.a
+                href={googleDocsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-primary-foreground font-medium"
+              >
+                <FaExternalLinkAlt className="text-sm" />
+                View on Google Docs
+              </motion.a>
+            </div>
           ) : (
-            <Document
-              file="/resume.pdf"
-              onLoadError={onDocumentLoadError}
-              className="flex justify-center w-full"
-            >
-              <Page
-                pageNumber={1}
-                className="flex justify-center"
-                renderTextLayer
-                renderAnnotationLayer
-                width={Math.min(890, typeof window !== 'undefined' ? window.innerWidth - 20 : 1200)}
-                scale={1}
-              />
-            </Document>
+            <iframe
+              src={embedUrl}
+              className="w-full h-full border-0"
+              onLoad={handleIframeLoad}
+              onError={handleIframeError}
+              title="Resume"
+              allow="autoplay"
+            />
           )}
         </div>
       </motion.div>
 
-      <motion.a
-        href="/resume.pdf"
-        download
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium shadow-md hover:shadow-lg transition-all"
-      >
-        <FaDownload className="text-base" />
-        Download Resume
-      </motion.a>
+      <div className="mt-8 flex flex-wrap gap-4 justify-center">
+        <motion.a
+          href={pdfUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium shadow-md hover:shadow-lg transition-all"
+        >
+          <FaDownload className="text-base" />
+          Download PDF
+        </motion.a>
+
+        <motion.a
+          href={googleDocsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-border bg-background text-foreground font-medium shadow-md hover:shadow-lg transition-all"
+        >
+          <FaExternalLinkAlt className="text-base" />
+          View in Google Docs
+        </motion.a>
+      </div>
     </section>
   )
 }
