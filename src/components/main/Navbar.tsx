@@ -25,7 +25,7 @@ export function Navbar() {
     { name: 'Skills', link: '#skills', icon: <FaCode /> },
     { name: 'Experience', link: '#experience', icon: <FaBriefcase /> },
     { name: 'Projects', link: '#projects', icon: <FaProjectDiagram /> },
-    { name: 'Blogs', link: 'https://medium.com/@hasan-ashab', icon: <FaBlog /> },
+    { name: 'Blogs', link: '#blogs', icon: <FaBlog /> },
   ]
 
   useEffect(() => {

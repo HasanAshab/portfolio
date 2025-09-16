@@ -22,16 +22,17 @@ const projectsData = [
     blog: 'https://medium.com/@hasan-ashab/cost-optimized-three-tier-architecture-on-aws-with-devops-20fd341648a0',
   },
   {
-    title: 'Three-Tier DevOps (Azure)',
-    description: 'A three-tier application using Azure App Service and CI/CD. (includes HA, DR)',
-    imageURL: '/three-tier-azure.png',
-    github: 'https://github.com/HasanAshab/three-tier-devops-azure',
-  },
-  {
     title: 'Retail Store DevOps (AWS)',
     description: 'A microservices-based e-commerce platform using EKS + Terraform & GitOps With ArgoCD & GitHub Actions.',
     imageURL: '/retail-store.png',
     github: 'https://github.com/HasanAshab/retail-store-devops',
+    blog: 'https://medium.com/@hasan-ashab/productionizing-awss-retail-sample-app-with-gitops-on-eks-b097ccaef111',
+  },
+  {
+    title: 'Three-Tier DevOps (Azure)',
+    description: 'A three-tier application using Azure App Service and CI/CD. (includes HA, DR)',
+    imageURL: '/three-tier-azure.png',
+    github: 'https://github.com/HasanAshab/three-tier-devops-azure',
   },
   {
     title: 'Hackathon Project - Chattingo',

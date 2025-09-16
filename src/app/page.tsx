@@ -16,7 +16,7 @@ export default function Home() {
         <ResumeSection />
         <Timeline />
         <Projects />
-        {/* <BlogsSection /> */}
+        <BlogsSection />
         <ContactUs />
         <Toaster position="bottom-right" />
       </div>

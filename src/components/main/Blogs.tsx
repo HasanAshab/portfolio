@@ -1,46 +1,42 @@
-'use client'
+"use client"
 
-import { BlogTile } from '@/components/sub/BlogTile'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { useState } from 'react'
+import { useEffect, useState } from "react"
+import { BlogTile } from "@/components/sub/BlogTile"
 
-const blogs = [
-  {
-    id: 1,
-    title: '🛒 ShopXIndia: A Scalable E-Commerce Platform',
-    excerpt:
-      'Behind the scenes of ShopXIndia — a microservices-based e-commerce platform built with GraphQL Federation.',
-    content: `ShopXIndia is a fully-featured e-commerce platform built with a microservices architecture
-and powered by GraphQL Federation for unified APIs.
-It leverages modern technologies to provide a seamless shopping experience while keeping the backend
-modular and maintainable.
-In this blog, I discuss how I designed the federated services, implemented authentication,
-and optimized query performance for scalability.`,
-  },
-  {
-    id: 2,
-    title: '💬 SocialPedia: A Modern Social Media Platform',
-    excerpt:
-      'From real-time chat to WebRTC calls — building SocialPedia, a full-stack social media app.',
-    content: `SocialPedia is a social media platform built using Node.js, React, MongoDB, Redux, WebSockets, and WebRTC.
-It supports features like real-time chat, notifications, friend management, and live audio/video calls.
-In this blog, I share how I implemented real-time capabilities, tackled state management challenges,
-and created an engaging, responsive user experience.`,
-  },
-  {
-    id: 3,
-    title: '🔒 FileShareX: Secure File Sharing Made Easy',
-    excerpt:
-      'Designing and building FileShareX — a secure, simple, and user-friendly file sharing app.',
-    content: `FileShareX is a secure file-sharing application built with React, Node.js, and MongoDB.
-It enables users to share files easily using QR codes, email links, or direct links — no complex setup required.
-In this blog, I explain how I implemented secure file uploads & downloads, integrated QR and email sharing,
-and designed a clean UX for hassle-free collaboration.`,
-  },
-]
+interface Blog {
+  id: string
+  title: string
+  excerpt: string
+  href: string
+}
 
 export function BlogsSection() {
-  const [selectedBlog, setSelectedBlog] = useState<null | (typeof blogs)[0]>(null)
+  const [blogs, setBlogs] = useState<Blog[]>([])
+
+  useEffect(() => {
+    async function fetchMedium() {
+      try {
+        // Use rss2json API to convert RSS to JSON
+        const res = await fetch(
+          `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@hasan-ashab`
+        )
+        const data = await res.json() as { items: Blog[] }
+
+        const posts = data.items.map((item: any) => ({
+          id: item.guid,
+          title: item.title,
+          excerpt: item.description.replace(/<[^>]+>/g, "").slice(0, 120) + "...",
+          href: item.link,
+        }))
+
+        setBlogs(posts)        
+      } catch (err) {
+        console.error("Failed to fetch Medium posts", err)
+      }
+    }
+
+    fetchMedium()
+  }, [])
 
   return (
     <section id="blogs" className="w-full py-12 dark:bg-neutral-950">
@@ -50,35 +46,20 @@ export function BlogsSection() {
         </h2>
 
         <div className="grid gap-4">
-          {blogs.map((blog) => (
-            <BlogTile
-              key={blog.id}
-              title={blog.title}
-              excerpt={blog.excerpt}
-              onRead={() => setSelectedBlog(blog)}
-            />
-          ))}
+          {blogs.length === 0 ? (
+            <p className="text-center text-gray-500">Loading...</p>
+          ) : (
+            blogs.map((blog) => (
+              <BlogTile
+                key={blog.id}
+                title={blog.title}
+                excerpt={blog.excerpt}
+                onRead={() => window.open(blog.href, "_blank")}
+              />
+            ))
+          )}
         </div>
       </div>
-
-      <Dialog open={!!selectedBlog} onOpenChange={() => setSelectedBlog(null)}>
-        <DialogContent className="max-w-[95vw] sm:max-w-[90vw] max-h-[90vh] overflow-y-auto p-6 rounded-lg bg-white dark:bg-neutral-900">
-          {selectedBlog && (
-            <>
-              <DialogHeader className="sticky top-0 bg-white dark:bg-neutral-900 z-10 pb-4 border-b border-zinc-200 dark:border-zinc-700">
-                <DialogTitle className="text-2xl font-bold text-zinc-800 dark:text-zinc-100">
-                  {selectedBlog.title}
-                </DialogTitle>
-              </DialogHeader>
-              <div className="mt-6 prose prose-zinc dark:prose-invert max-w-none">
-                <p className="text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
-                  {selectedBlog.content}
-                </p>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
     </section>
   )
 }

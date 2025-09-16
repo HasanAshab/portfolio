@@ -41,7 +41,7 @@ const Footer: FC = () => {
     { name: 'About' },
     { name: 'Skills' },
     { name: 'Projects' },
-    { name: 'Blogs', href: 'https://medium.com/@hasan-ashab' },
+    { name: 'Blogs' },
   ]
 
   const containerVariants = {
