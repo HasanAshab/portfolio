@@ -19,14 +19,14 @@ const projectsData = [
     description: 'A three-tier application using AWS ECS Fargate, CI/CD and CloudFront. Custom domain + SSL configured (Route53, ACM)',
     imageURL: '/three-tier-aws.png',
     github: 'https://github.com/HasanAshab/three-tier-devops-aws',
-    blog: 'https://medium.com/@hasan-ashab/cost-optimized-three-tier-architecture-on-aws-with-devops-20fd341648a0',
+    blog: 'https://dev.to/hasan_ashab/cost-optimized-three-tier-architecture-on-aws-with-devops-15h2',
   },
   {
     title: 'Retail Store DevOps (AWS)',
     description: 'A microservices-based e-commerce platform using EKS + Terraform & GitOps With ArgoCD & GitHub Actions.',
     imageURL: '/retail-store.png',
     github: 'https://github.com/HasanAshab/retail-store-devops',
-    blog: 'https://medium.com/@hasan-ashab/productionizing-awss-retail-sample-app-with-gitops-on-eks-b097ccaef111',
+    blog: 'https://dev.to/hasan_ashab/productionizing-awss-retail-sample-app-with-gitops-on-eks-22f2',
   },
   {
     title: 'Three-Tier DevOps (Azure)',
@@ -40,7 +40,7 @@ const projectsData = [
     imageURL: '/chattingo.png',
     github: 'https://github.com/HasanAshab/chattingo',
     video: 'https://youtu.be/DD1U_LmmRw8',
-    blog: 'https://medium.com/@hasan-ashab/my-3-day-hackathon-journey-building-a-ci-cd-pipeline-from-scratch-bd51a90d39c8',
+    blog: 'https://dev.to/hasan_ashab/my-3-day-hackathon-journey-building-a-cicd-pipeline-from-scratch-4ifp',
   },
   {
     title: 'Docker Showcase',
@@ -69,6 +69,7 @@ const VideoIndicator = () => (
 const BlogIndicator = () => (
   <svg fill="#000000" height="15px" width="15px" version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32" ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M17.8,18H15c-0.6,0-1-0.4-1-1v-2.8c0-0.3,0.1-0.5,0.3-0.7L24.9,2.9c0.2-0.2,0.4-0.3,0.7-0.3l0,0c0.3,0,0.5,0.1,0.7,0.3 l2.8,2.8c0.4,0.4,0.4,1,0,1.4L18.5,17.7C18.3,17.9,18.1,18,17.8,18z"></path> </g> <path d="M19.9,19.1c-0.6,0.6-1.3,0.9-2.1,0.9H15c-1.7,0-3-1.3-3-3v-2.8c0-0.8,0.3-1.6,0.9-2.1L18.9,6H9C7.3,6,6,7.3,6,9v14 c0,1.7,1.3,3,3,3h14c1.7,0,3-1.3,3-3v-9.9L19.9,19.1z"></path> </g></svg>
 )
+
 const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-background">

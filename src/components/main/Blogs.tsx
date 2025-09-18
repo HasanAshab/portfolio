@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react"
 import { BlogTile } from "@/components/sub/BlogTile"
+import { log } from "node:console"
 
 interface Blog {
-  id: string
+  id: number
   title: string
   excerpt: string
+  image?: string
   href: string
 }
 
@@ -14,28 +16,27 @@ export function BlogsSection() {
   const [blogs, setBlogs] = useState<Blog[]>([])
 
   useEffect(() => {
-    async function fetchMedium() {
+    async function fetchDevTo() {
       try {
-        // Use rss2json API to convert RSS to JSON
-        const res = await fetch(
-          `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@hasan-ashab`
-        )
-        const data = await res.json() as { items: Blog[] }
-
-        const posts = data.items.map((item: any) => ({
-          id: item.guid,
+        const res = await fetch("https://dev.to/api/articles?username=hasan_ashab")
+        const data = await res.json() as any
+        
+        const posts = data.map((item: any) => ({
+          id: item.id,
           title: item.title,
-          excerpt: item.description.replace(/<[^>]+>/g, "").slice(0, 120) + "...",
-          href: item.link,
+          excerpt: item.description,
+          href: item.url,
+          tags: item.tag_list,
+          image: item.cover_image || item.social_image
         }))
 
-        setBlogs(posts)        
+        setBlogs(posts)
       } catch (err) {
-        console.error("Failed to fetch Medium posts", err)
+        console.error("Failed to fetch Dev.to posts", err)
       }
     }
 
-    fetchMedium()
+    fetchDevTo()
   }, [])
 
   return (
@@ -54,6 +55,7 @@ export function BlogsSection() {
                 key={blog.id}
                 title={blog.title}
                 excerpt={blog.excerpt}
+                image={blog.image}
                 onRead={() => window.open(blog.href, "_blank")}
               />
             ))
