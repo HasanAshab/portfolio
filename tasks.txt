@@ -1,0 +1,6 @@
+blogs thumbnail fix
+mobile responsive
+filter projects
+image warnings
+filter blogs
+
