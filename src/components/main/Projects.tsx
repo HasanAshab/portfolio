@@ -12,6 +12,7 @@ import Image from 'next/image'
 import { FaGithub } from 'react-icons/fa'
 import { Badge } from '../ui/badge'
 import { BentoGrid, BentoGridItem } from '../ui/bento-grid'
+import { Tags } from 'lucide-react'
 
 const projectsData = [
   {
@@ -20,6 +21,7 @@ const projectsData = [
     imageURL: '/three-tier-aws.png',
     github: 'https://github.com/HasanAshab/three-tier-devops-aws',
     blog: 'https://dev.to/hasan_ashab/cost-optimized-three-tier-architecture-on-aws-with-devops-15h2',
+    tags: ['AWS', 'Github Actions'],
   },
   {
     title: 'Retail Store DevOps (AWS)',
@@ -27,12 +29,14 @@ const projectsData = [
     imageURL: '/retail-store.png',
     github: 'https://github.com/HasanAshab/retail-store-devops',
     blog: 'https://dev.to/hasan_ashab/productionizing-awss-retail-sample-app-with-gitops-on-eks-22f2',
+    tags: ['AWS', 'Github Actions', 'Kubernetes', 'ArgoCD'],
   },
   {
     title: 'Three-Tier DevOps (Azure)',
     description: 'A three-tier application using Azure App Service and CI/CD. (includes HA, DR)',
     imageURL: '/three-tier-azure.png',
     github: 'https://github.com/HasanAshab/three-tier-devops-azure',
+    tags: ['Azure', 'Github Actions'],
   },
   {
     title: 'Hackathon Project - Chattingo',
@@ -41,18 +45,21 @@ const projectsData = [
     github: 'https://github.com/HasanAshab/chattingo',
     video: 'https://youtu.be/DD1U_LmmRw8',
     blog: 'https://dev.to/hasan_ashab/my-3-day-hackathon-journey-building-a-cicd-pipeline-from-scratch-4ifp',
+    tags: ['VPS', 'Jenkins', 'GitOps'],
   },
   {
     title: 'Docker Showcase',
     description: 'A collection of Docker and Docker Compose examples. Includes multi-service stacks (e.g. MERN, MEAN, LAMP).',
     imageURL: '/docker-showcase.png',
     github: 'https://github.com/HasanAshab/docker-showcase',
+    tags: []
   },
   {
     title: 'Ranker API (AI)',
     description: 'A gamified Django API for self-improvement. Create challenges, earn XP, unlock titles. leaderboard. Notifications keep users engaged. (UI NOT READY YET)',
     imageURL: '/ranker-api.webp',
     github: 'https://github.com/HasanAshab/ranker-api',
+    tags: ['Django'],
   }
 ]
 
