@@ -1,6 +1,7 @@
-blogs thumbnail fix
-mobile responsive
-filter projects
-image warnings
-filter blogs
+Hossain:
+  read all blogs
+  mobile spacing
+  project show all
 
+Hasan:
+  show top 5 blogs

@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Skill, skills } from '@/constants'
 import SkillDataProvider from '../sub/SkillDataProvider'
@@ -15,9 +15,37 @@ const uniqueSkills: Skill[] = Array.from(
     }, new Map<string, Skill>())
     .values(),
 )
-//.sort((a, b) => a.skill_name.localeCompare(b.skill_name))
 
 const Skills = () => {
+  const [showAll, setShowAll] = useState(false)
+  const [maxItemsToShow, setMaxItemsToShow] = useState(12) // Default value
+
+  useEffect(() => {
+    // This function will run only on the client side
+    const handleResize = () => {
+      if (typeof window !== 'undefined') {
+        if (window.innerWidth > 768) {
+          setMaxItemsToShow(12)
+        } else if (window.innerWidth <= 768 && window.innerWidth > 425) {
+          setMaxItemsToShow(8)
+        } else {
+          setMaxItemsToShow(6)
+        }
+      }
+    }
+
+    // Set initial value
+    handleResize()
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize)
+
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const skillsToShow = showAll ? uniqueSkills : uniqueSkills.slice(0, maxItemsToShow)
+
   return (
     <section
       id="skills"
@@ -43,10 +71,10 @@ const Skills = () => {
 
       <div className="w-full max-w-6xl">
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-          {uniqueSkills.map((skill, index) => (
+          {skillsToShow.map((skill, index) => (
             <motion.div
               key={skill.skill_name}
-              className="group relative flex flex-col items-center p-4 rounded-xl border bg-card hover:bg-accent transition-all duration-300 transform hover:-translate-y-1"
+              className=" group relative flex flex-col items-center p-4 rounded-xl border bg-card hover:bg-accent transition-all duration-300 transform hover:-translate-y-1"
               role="listitem"
               aria-label={skill.skill_name}
               whileHover={{ scale: 1.05 }}
@@ -66,6 +94,18 @@ const Skills = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Show All / Show Less Button */}
+        {uniqueSkills.length > maxItemsToShow && (
+          <div className="mt-8 text-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+            >
+              {showAll ? 'Show Less' : `Show All (${uniqueSkills.length})`}
+            </button>
+          </div>
+        )}
 
         <p className="mt-8 text-center text-sm text-muted-foreground italic">
           …and plenty more technologies I&apos;m exploring & mastering every day.
