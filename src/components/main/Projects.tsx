@@ -61,6 +61,7 @@ const projectsData = [
     github: 'https://github.com/HasanAshab/ranker-api',
     tags: ['Django'],
   }
+  
 ]
 
 const LiveIndicator = () => (
@@ -95,7 +96,7 @@ const Projects = () => {
         </motion.div>
       </div>
 
-      <BentoGrid className="max-w-6xl mx-auto">
+      <BentoGrid className="max-w-6xl mx-auto [@media(max-width:425px)]:grid-cols-1">
         {projectsData.map((project, i) => (
           <BentoGridItem
             key={project.title}
@@ -103,7 +104,7 @@ const Projects = () => {
             description={
               <div className="space-y-1 text-sm text-foreground">
                 <p>{project.description}</p>
-                <div className="flex gap-3 ">
+                <div className="flex flex-wrap gap-3 ">
                   <Badge asChild variant="secondary" className="gap-1 rounded-full">
                     <a
                       href={project.github}
@@ -151,11 +152,11 @@ const Projects = () => {
               </div>
             }
             header={
-              <div className="relative w-full h-full min-h-[6rem] rounded-xl overflow-hidden">
+              <div className="relative w-full h-full [@media(max-width:425px)]:min-h-[9rem] min-h-[6rem] rounded-xl overflow-hidden">
                 <Image
                   src={project.imageURL}
                   alt={project.title}
-                  className="object-cover"
+                  className="object-cover "
                   sizes="(max-width: 768px) 100vw, 50vw"
                   quality={80}
                   fill

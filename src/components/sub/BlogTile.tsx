@@ -27,7 +27,7 @@ export function BlogTile({
         <img
           src={image}
           alt={title}
-          className="w-full h-48 object-cover rounded-xl"
+          className="hidden md:block w-40 h-20 object-cover rounded-xl"
         />
       )}
       <div>
