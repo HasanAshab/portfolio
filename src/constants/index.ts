@@ -23,7 +23,7 @@ export const skills: Skill[] = [
   { skill_name: 'Ansible', Image: '/ansible.svg', width: 80, height: 80 },
   
   { skill_name: 'GitHub Actions', Image: '/githubactions.svg', width: 80, height: 80 },
-  { skill_name: 'Jenkins', Image: '/jenkins.png', width: 80, height: 80 },
+  { skill_name: 'Jenkins', Image: '/jenkins.svg', width: 80, height: 80 },
   { skill_name: 'GitLab CI', Image: '/gitlab.png', width: 80, height: 80 },
   { skill_name: 'ArgoCD', Image: '/argocd.svg', width: 80, height: 80 },
   // { skill_name: 'FluxCD', Image: '/fluxcd.png', width: 80, height: 80 },
