@@ -1,7 +1,9 @@
 Hossain:
-  read all blogs
+  blogs tags filtering
+  read all blogs -> redirect to blog
   mobile spacing
   project show all
+  total projects
 
 Hasan:
   show top 5 blogs

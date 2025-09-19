@@ -42,8 +42,8 @@ export function BlogsSection() {
   return (
     <section id="blogs" className="w-full py-12 dark:bg-neutral-950">
       <div className="mx-auto max-w-5xl px-4">
-        <h2 className="mb-8 text-3xl font-bold text-center text-zinc-800 dark:text-zinc-100">
-          Blogs
+        <h2 className="mb-8 text-4xl font-bold text-center text-zinc-800 dark:text-zinc-100">
+          My Recent Blogs ✍️
         </h2>
 
         <div className="grid gap-4">
