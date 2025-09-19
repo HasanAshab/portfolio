@@ -107,7 +107,14 @@ const Projects = () => {
   const clearFilters = () => {
     setSelectedTags([])
   }
-
+  let lastColSpan2Index = 0
+  const isColSpan2 = (index: number) =>{
+    if (index === lastColSpan2Index + 3) {
+      lastColSpan2Index = index
+      return true
+    }
+    return false
+  }
   return (
     <section id="projects" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -139,7 +146,7 @@ const Projects = () => {
               {selectedTags.length > 0 && (
                 <button 
                   onClick={clearFilters}
-                  className="text-sm text-muted-foreground hover:text-foreground ml-2 underline"
+                  className="text-sm text-muted-foreground hover:text-foreground ml-2 underline "
                 >
                   Clear all
                 </button>
@@ -229,7 +236,7 @@ const Projects = () => {
                 />
               </div>
             }
-            className={i === 3 || i === 6 ? 'md:col-span-2' : ''}
+            className={isColSpan2(i) ? 'md:col-span-2' : ''}
           />
         ))}
         

@@ -1,6 +1,5 @@
 Hossain:
-  blogs tags filtering
-  read all blogs -> redirect to blog
+  ----- -> redirect to blog
   mobile spacing
   project show all
   total projects
