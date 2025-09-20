@@ -10,6 +10,7 @@ interface Blog {
   image?: string
   href: string
   tags: string[]
+  engagement: number
 }
 
 export function BlogsSection() {
@@ -28,8 +29,9 @@ export function BlogsSection() {
           excerpt: item.description,
           href: item.url,
           tags: item.tag_list,
-          image: item.cover_image || item.social_image
-        }))
+          image: item.cover_image || item.social_image,
+          engagement: item.positive_reactions_count + item.comments_count
+        }))        
 
         setBlogs(posts)
       } catch (err) {
@@ -101,18 +103,21 @@ export function BlogsSection() {
               No blog posts found for the selected tag.
             </p>
           ) : (
-            filteredBlogs.map((blog) => (
-              <BlogTile
-                key={blog.id}
-                title={blog.title}
-                excerpt={blog.excerpt}
-                image={blog.image}
-                onRead={() => window.open(blog.href, "_blank")}
-              />
-            ))
+            filteredBlogs
+              .toSorted((a, b) => b.engagement - a.engagement)
+              .slice(0, 4)
+              .map((blog) => (
+                <BlogTile
+                  key={blog.id}
+                  title={blog.title}
+                  excerpt={blog.excerpt}
+                  image={blog.image}
+                  onRead={() => window.open(blog.href, "_blank")}
+                />
+              ))
           )}
         </div>
-        <button className="block mx-auto mt-8 px-4 py-2 rounded-full bg-black text-white"><a href="your link here">See All Blogs</a></button>
+        <button className="block mx-auto mt-8 px-4 py-2 rounded-full bg-black text-white"><a href="https://dev.to/hasan_ashab" target="_blank">See All Blogs</a></button>
       </div>
     </section>
   )

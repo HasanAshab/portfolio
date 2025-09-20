@@ -1,8 +1,7 @@
 Hossain:
-  ----- -> redirect to blog
   mobile spacing
   project show all
   total projects
+  multiple tags select for blogs
 
 Hasan:
-  show top 5 blogs
