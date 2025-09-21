@@ -18,6 +18,14 @@ import { useState, useMemo } from 'react' // Added imports
 
 const projectsData = [
   {
+    title: 'Serverless Todo App',
+    description: 'A full-stack serverless todo app built on AWS, showcasing a comprehensive DevOps implementation with Terraform, GitHub Actions CI/CD, and a modern serverless architecture.',
+    imageURL: '/serverless-todo.jpg',
+    github: 'https://github.com/HasanAshab/serverless-todo-app',
+    blog: 'https://dev.to/hasan_ashab/a-serverless-todo-app-on-aws-with-terraform-and-github-actions-mo9',
+    tags: ['AWS', 'Serverless', 'Terraform', 'Github Actions', 'DevSecOps', 'GitOps'],
+  },
+  {
     title: 'Three-Tier DevOps (AWS)',
     description: 'A three-tier application using AWS ECS Fargate, CI/CD and CloudFront. Custom domain + SSL configured (Route53, ACM)',
     imageURL: '/three-tier-aws.png',
@@ -34,13 +42,6 @@ const projectsData = [
     tags: ['AWS', 'Github Actions', 'Kubernetes', 'ArgoCD', 'Terraform', 'GitOps', 'DevSecOps', 'Docker'],
   },
   {
-    title: 'Three-Tier DevOps (Azure)',
-    description: 'A three-tier application using Azure App Service and CI/CD. (includes HA, DR)',
-    imageURL: '/three-tier-azure.png',
-    github: 'https://github.com/HasanAshab/three-tier-devops-azure',
-    tags: ['Azure', 'Github Actions', 'Terraform', 'GitOps', 'DevSecOps', 'Docker'],
-  },
-  {
     title: 'Hackathon Project - Chattingo',
     description: 'Full CI/CD pipeline with Jenkins, Docker and Nginx following GitOps, DevSecOps principles for a real-time chat app. Scored 34 out of 40.',
     imageURL: '/chattingo.png',
@@ -48,6 +49,13 @@ const projectsData = [
     video: 'https://youtu.be/DD1U_LmmRw8',
     blog: 'https://dev.to/hasan_ashab/my-3-day-hackathon-journey-building-a-cicd-pipeline-from-scratch-4ifp',
     tags: ['VPS', 'Jenkins', 'GitOps', 'DevSecOps', 'Ansible', 'Docker', '🏆Contests'],
+  },
+  {
+    title: 'Three-Tier DevOps (Azure)',
+    description: 'A three-tier application using Azure App Service and CI/CD. (includes HA, DR)',
+    imageURL: '/three-tier-azure.png',
+    github: 'https://github.com/HasanAshab/three-tier-devops-azure',
+    tags: ['Azure', 'Github Actions', 'Terraform', 'GitOps', 'DevSecOps', 'Docker'],
   },
   {
     title: 'Docker Showcase',

@@ -61,7 +61,7 @@ export function BlogsSection() {
     <section id="blogs" className="w-full py-12 dark:bg-neutral-950">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="mb-8 text-4xl font-bold text-center text-zinc-800 dark:text-zinc-100">
-          My Recent Blogs ✍️
+          Read My Blogs ✍️
         </h2>
 
         {/* Tag Filter Section */}
@@ -76,7 +76,7 @@ export function BlogsSection() {
                     : "bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
                 }`}
               >
-                All Posts
+                Recent
               </button>
               {allTags.map(tag => (
                 <button
