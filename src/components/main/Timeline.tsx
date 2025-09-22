@@ -22,6 +22,26 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
+    id: 2,
+    type: 'work',
+    title: 'DevOps Engineer (Intern)',
+    company: 'Elevate Labs',
+    location: 'Remote',
+    imageURL: '/elevatelabs.jpg',
+    date: 'Sep 2025 - Present',
+    description: 'Working on real-time projects to gain hands-on experience in modern DevOps practices.',
+    achievements: [
+      "Setting up and automating CI/CD pipelines with GitHub Actions",
+      "Implementing containerization workflows using Docker",
+      "Exploring orchestration with Kubernetes for scalable deployments",
+      "Deploying applications to cloud environments (AWS & Azure)",
+      "Applying Infrastructure as Code (IaC) principles with Terraform and Ansible",
+      "Configuring monitoring & observability using Prometheus and Grafana",
+    ],
+    icon: <FaCode className="w-6 h-6 text-primary" />,
+    companyIcon: <FaLaptopCode className="w-8 h-8 text-blue-500" />,
+  },
+  {
     id: 1,
     type: 'project',
     title: 'Backend Developer (Contract)',
