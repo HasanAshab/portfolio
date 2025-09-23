@@ -10,7 +10,7 @@ import { Toaster } from 'react-hot-toast'
 export default function Home() {
   return (
     <div className="min-h-screen min-w-screen">
-      <div className="flex flex-col gap-20">
+      <div className="flex flex-col gap-10">
         <Hero />
         <Skills />
         <ResumeSection />

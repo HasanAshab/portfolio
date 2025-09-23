@@ -2,6 +2,10 @@
 
 import { useEffect, useState, useMemo } from "react"
 import { BlogTile } from "@/components/sub/BlogTile"
+import { motion } from "framer-motion"
+import { Badge } from "@/components/ui/badge"
+import { Tags } from "lucide-react"
+import { log } from "node:console"
 
 interface Blog {
   id: number
@@ -10,12 +14,13 @@ interface Blog {
   image?: string
   href: string
   tags: string[]
+  createdAt: string
   engagement: number
 }
 
 export function BlogsSection() {
   const [blogs, setBlogs] = useState<Blog[]>([])
-  const [selectedTag, setSelectedTag] = useState<string | null>(null)
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
 
   useEffect(() => {
     async function fetchDevTo() {
@@ -30,8 +35,9 @@ export function BlogsSection() {
           href: item.url,
           tags: item.tag_list,
           image: item.cover_image || item.social_image,
+          createdAt: item.published_at,
           engagement: item.positive_reactions_count + item.comments_count
-        }))        
+        }))
 
         setBlogs(posts)
       } catch (err) {
@@ -51,73 +57,140 @@ export function BlogsSection() {
     return Array.from(tags).sort()
   }, [blogs])
 
-  // Filter blogs based on selected tag
+  // Filter blogs based on selected tags (AND logic)
   const filteredBlogs = useMemo(() => {
-    if (!selectedTag) return blogs
-    return blogs.filter(blog => blog.tags.includes(selectedTag))
-  }, [blogs, selectedTag])
+    if (selectedTags.length === 0) return blogs
+    
+    return blogs.filter(blog => 
+      selectedTags.every(tag => blog.tags.includes(tag))
+    )
+  }, [blogs, selectedTags])
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags(prev => 
+      prev.includes(tag) 
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    )
+  }
+
+  const clearFilters = () => {
+    setSelectedTags([])
+  }
 
   return (
-    <section id="blogs" className="w-full py-12 dark:bg-neutral-950">
-      <div className="mx-auto max-w-5xl px-4">
-        <h2 className="mb-8 text-4xl font-bold text-center text-zinc-800 dark:text-zinc-100">
-          Read My Blogs ✍️
-        </h2>
+    <section id="blogs" className="w-full py-20 bg-background">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            My Recent Blogs ✍️
+          </h2>
+          <p className="text-muted-foreground mt-4 max-w-3xl mx-auto text-base font-semibold md:text-lg italic">
+            Insights, tutorials, and thoughts on DevOps, cloud technologies, and software development.
+          </p>
+        </motion.div>
 
-        {/* Tag Filter Section */}
+        {/* Tag Filter Section - Same as Projects component */}
         {allTags.length > 0 && (
-          <div className="mb-8">
-            <div className="flex flex-wrap justify-center gap-2">
-              <button
-                onClick={() => setSelectedTag(null)}
-                className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                  selectedTag === null
-                    ? "bg-black text-white dark:bg-white dark:text-black"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
-                }`}
-              >
-                Recent
-              </button>
-              {allTags.map(tag => (
-                <button
-                  key={tag}
-                  onClick={() => setSelectedTag(tag)}
-                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                    selectedTag === tag
-                      ? "bg-black text-white dark:bg-white dark:text-black"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
-                }`}
-                >
-                  {tag}
-                </button>
-              ))}
+          <motion.div 
+            className="mb-12"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <div className="flex flex-col items-center">
+              <div className="flex items-center gap-2 mb-4">
+                <Tags className="h-5 w-5" />
+                <h3 className="text-lg font-medium">Filter by tags</h3>
+                {selectedTags.length > 0 && (
+                  <button 
+                    onClick={clearFilters}
+                    className="text-sm text-muted-foreground hover:text-foreground ml-2 underline"
+                  >
+                    Clear all
+                  </button>
+                )}
+              </div>
+              
+              <div className="flex flex-wrap justify-center gap-2 max-w-2xl">
+                {allTags.map(tag => (
+                  <Badge
+                    key={tag}
+                    variant={selectedTags.includes(tag) ? "default" : "outline"}
+                    className="cursor-pointer px-3 py-1 rounded-full transition-all"
+                    onClick={() => toggleTag(tag)}
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         <div className="grid gap-4">
           {blogs.length === 0 ? (
-            <p className="text-center text-gray-500 dark:text-gray-400">Loading...</p>
+            <motion.p 
+              className="text-center text-muted-foreground"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              Loading blog posts...
+            </motion.p>
           ) : filteredBlogs.length === 0 ? (
-            <p className="text-center text-gray-500 dark:text-gray-400">
-              No blog posts found for the selected tag.
-            </p>
+            <motion.div 
+              className="text-center py-12"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="text-muted-foreground text-lg">
+                No blog posts match the selected tags. Try selecting different tags.
+              </p>
+            </motion.div>
           ) : (
             filteredBlogs
-              .toSorted((a, b) => b.engagement - a.engagement)
-              .slice(0, 4)
-              .map((blog) => (
+            .toSorted((a, b) => {
+              const bonusPerB = new Date(b.createdAt).getTime() > new Date(a.createdAt).getTime() 
+                ? 1.7 : 1
+              const bonusPerA = new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime() 
+                ? 1.7 : 1                
+              return (b.engagement * bonusPerB) - (a.engagement * bonusPerA)
+            })
+            .slice(0, 4)
+            .map((blog, index) => (
+              <motion.div
+                key={blog.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
                 <BlogTile
-                  key={blog.id}
                   title={blog.title}
                   excerpt={blog.excerpt}
                   image={blog.image}
                   onRead={() => window.open(blog.href, "_blank")}
                 />
-              ))
+              </motion.div>
+            ))
           )}
-        </div>
-        <button className="block mx-auto mt-8 px-4 py-2 rounded-full bg-black text-white"><a href="https://dev.to/hasan_ashab" target="_blank">See All Blogs</a></button>
+           <div className="mt-8 text-center">
+            <button
+              className="px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+            >
+             <a href="https://dev.to/hasan_ashab" target="_blank">Read All Blogs</a>
+            </button>
+          </div>
+         </div>
       </div>
     </section>
   )
