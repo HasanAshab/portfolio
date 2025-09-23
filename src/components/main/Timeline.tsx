@@ -22,7 +22,7 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
-    id: 2,
+    id: 1,
     type: 'work',
     title: 'DevOps Engineer (Intern)',
     company: 'Elevate Labs',
@@ -40,28 +40,7 @@ export const timelineData: TimelineItem[] = [
     ],
     icon: <FaCode className="w-6 h-6 text-primary" />,
     companyIcon: <FaLaptopCode className="w-8 h-8 text-blue-500" />,
-  },
-  {
-    id: 1,
-    type: 'project',
-    title: 'Backend Developer (Contract)',
-    company: 'Yum Foods',
-    location: 'Remote',
-    imageURL: '/yumfoods.png',
-    date: 'Nov 2023 - Aug 2024',
-    description: 'Food delivery platform for a locally reputed restaurant.',
-    achievements: [
-      'Launched the restaurant platform on a shared cloud environment.',
-      'Reducing initial infrastructure costs by 40%',
-      'Transitioning to AWS infrastructure to handle 3x user traffic',
-      'Architected and maintained the application on AWS (EC2, RDS, ElastiCache), managing server configuration and a PostgreSQL database.',
-      'Automated and streamlined deployments by Implementing a CI/CD pipeline (GitHub Actions).',
-      'Reduced and controlled infrastructure costs by applying FinOps best practices',
-      'Budgeted monthly expenses to $50 without compromising performance.',
-    ],
-    icon: <FaCode className="w-6 h-6 text-primary" />,
-    companyIcon: <FaLaptopCode className="w-8 h-8 text-blue-500" />,
-  },
+  }
 ]
 
 export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ item, index }) => (
