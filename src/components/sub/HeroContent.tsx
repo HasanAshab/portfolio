@@ -55,15 +55,15 @@ const HeroContent: FC = () => {
         variants={slideInFromLeft(0.5)}
         className="flex flex-col items-center justify-between gap-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight"
       >
-        <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
           Hasan Ashab
-        </span>
+        </h1>
         <PointerHighlight rectangleClassName="rounded-none">
-          <span className="text-primary p-3 text-3xl lg:text-6xl">DevOps & Cloud Engineer</span>
+          <h2 className="text-primary p-3 text-3xl lg:text-6xl">DevOps & Cloud Engineer</h2>
         </PointerHighlight>
-        <span className="text-base text-muted-foreground italic max-w-[500px] mx-auto">
-        Building scalable infrastructure aligned with company requirements.
-        </span>
+        <p className="text-base text-muted-foreground italic max-w-[500px] mx-auto">
+          Building scalable cloud infrastructure and automating deployment pipelines with AWS, Kubernetes, Docker, and modern DevOps practices.
+        </p>
       </motion.div>
 
       <motion.div

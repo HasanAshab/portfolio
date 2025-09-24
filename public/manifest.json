@@ -1,0 +1,27 @@
+{
+  "name": "Hasan Ashab - DevOps & Cloud Engineer Portfolio",
+  "short_name": "Hasan Ashab",
+  "description": "Professional DevOps and Cloud Engineer portfolio showcasing expertise in AWS, Kubernetes, Docker, and CI/CD automation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/profile-pic.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/profile-pic.jpg", 
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "devops", "cloud", "engineering"],
+  "lang": "en",
+  "dir": "ltr"
+}

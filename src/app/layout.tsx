@@ -17,9 +17,70 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Hasan Ashab',
+  title: 'Hasan Ashab - DevOps & Cloud Engineer Portfolio | AWS, Kubernetes, Docker',
   description:
-    'A clean, modern, and responsive developer portfolio showcasing my projects, skills, and experience. Built using Next.js and styled with Tailwind CSS and ShadCN UI, and deployed seamlessly on Cloudflare Pages for speed and scalability.',
+    'Experienced DevOps and Cloud Engineer specializing in AWS, Kubernetes, Docker, and CI/CD. View my portfolio showcasing cloud infrastructure projects, automation solutions, and scalable deployments.',
+  keywords: [
+    'devops portfolio',
+    'cloud engineer portfolio', 
+    'devops engineer',
+    'cloud engineer',
+    'hasan ashab',
+    'hasan ashab portfolio',
+    'portfolio website',
+    'aws devops',
+    'kubernetes engineer',
+    'docker specialist',
+    'ci cd pipeline',
+    'infrastructure automation',
+    'cloud architecture',
+    'terraform',
+    'ansible',
+    'jenkins'
+  ],
+  authors: [{ name: 'Hasan Ashab' }],
+  creator: 'Hasan Ashab',
+  publisher: 'Hasan Ashab',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://hasanashab.vercel.app',
+    title: 'Hasan Ashab - DevOps & Cloud Engineer Portfolio',
+    description: 'Experienced DevOps and Cloud Engineer specializing in AWS, Kubernetes, Docker, and CI/CD. View my portfolio showcasing cloud infrastructure projects.',
+    siteName: 'Hasan Ashab Portfolio',
+    images: [
+      {
+        url: '/profile-pic.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Hasan Ashab - DevOps & Cloud Engineer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hasan Ashab - DevOps & Cloud Engineer Portfolio',
+    description: 'Experienced DevOps and Cloud Engineer specializing in AWS, Kubernetes, Docker, and CI/CD.',
+    images: ['/profile-pic.jpg'],
+    creator: '@hasanashab',
+  },
+  alternates: {
+    canonical: 'https://hasanashab.vercel.app',
+  },
+  verification: {
+    google: 'your-google-verification-code', // Add your Google Search Console verification code
+  },
 }
 
 export default function RootLayout({
@@ -27,8 +88,49 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Hasan Ashab',
+    jobTitle: 'DevOps & Cloud Engineer',
+    description: 'Experienced DevOps and Cloud Engineer specializing in AWS, Kubernetes, Docker, and CI/CD automation',
+    url: 'https://hasanashab.vercel.app',
+    image: 'https://hasanashab.vercel.app/profile-pic.jpg',
+    sameAs: [
+      'https://github.com/HasanAshab',
+      'https://linkedin.com/in/hasanashab', // Add your LinkedIn
+    ],
+    knowsAbout: [
+      'DevOps',
+      'Cloud Engineering', 
+      'AWS',
+      'Kubernetes',
+      'Docker',
+      'CI/CD',
+      'Infrastructure as Code',
+      'Terraform',
+      'Ansible',
+      'Jenkins',
+      'Monitoring',
+      'Automation'
+    ],
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Freelance'
+    }
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <link rel="canonical" href="https://hasanashab.vercel.app" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
@@ -37,7 +139,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          {children}
+          <main role="main">
+            {children}
+          </main>
         </ThemeProvider>
         <Footer />
         <Analytics />
