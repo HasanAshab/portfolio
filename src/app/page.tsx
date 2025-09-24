@@ -7,6 +7,7 @@ import Skills from '@/components/main/Skills'
 import Timeline from '@/components/main/Timeline'
 import { Toaster } from 'react-hot-toast'
 import { Metadata } from 'next'
+import CertificationsSection from '@/components/main/Certifications'
 
 export const metadata: Metadata = {
   title: 'Hasan Ashab - DevOps & Cloud Engineer Portfolio | AWS, Kubernetes, Docker',
@@ -32,8 +33,9 @@ export default function Home() {
       <div className="flex flex-col gap-10">
         <Hero />
         <Skills />
-        <ResumeSection />
+        {/* <ResumeSection /> */}
         <Timeline />
+        <CertificationsSection />
         <Projects />
         <BlogsSection />
         <ContactUs />
