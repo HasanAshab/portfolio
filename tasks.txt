@@ -1,8 +1,5 @@
 Hossain:
-i dont like the certificate card in "Certifications.tsx". you should remove from the card  :
-  1. issued , 
-  2. description ( show only when hover )
-and make the image larger because in the case of showing a certificate card 
-it is different from project card or blog card , the image and title should explain all information but anyways show description when user hover
+skills name always show
+new theme
 
 Hasan:

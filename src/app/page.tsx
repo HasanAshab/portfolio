@@ -35,7 +35,7 @@ export default function Home() {
         <Skills />
         <ResumeSection />
         <Timeline />
-        <CertificationsSection />
+        {/* <CertificationsSection /> */}
         <Projects />
         <BlogsSection />
         <ContactUs />

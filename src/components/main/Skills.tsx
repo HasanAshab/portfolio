@@ -70,26 +70,29 @@ const Skills = () => {
       </div>
 
       <div className="w-full max-w-6xl">
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {skillsToShow.map((skill, index) => (
             <motion.div
               key={skill.skill_name}
-              className=" group relative flex flex-col items-center p-4 rounded-xl border bg-card hover:bg-accent transition-all duration-300 transform hover:-translate-y-1"
+              className="group relative flex flex-col items-center p-4 rounded-xl border bg-card hover:bg-accent transition-all duration-300 transform hover:-translate-y-1"
               role="listitem"
               aria-label={skill.skill_name}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <SkillDataProvider
-                src={skill.Image}
-                width={50}
-                height={50}
-                index={index}
-                className="group-active:scale-110 group-hover:scale-110 transition-transform duration-200"
-              />
-              <span className="absolute top-full mt-2 text-xs font-medium text-foreground bg-background px-2 py-1 rounded opacity-0 group-active:opacity-100 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow">
-                {skill.skill_name}
-              </span>
+              <div className="flex flex-col items-center gap-3">
+                <SkillDataProvider
+                  src={skill.Image}
+                  width={30}
+                  height={30}
+                  index={index}
+                  className="group-active:scale-110 group-hover:scale-110 transition-transform duration-200"
+                />
+                {/* Skill name permanently displayed below the icon */}
+                <span className="text-xs font-medium text-foreground text-center leading-tight line-clamp-2">
+                  {skill.skill_name}
+                </span>
+              </div>
               <div className="absolute inset-0 rounded-xl opacity-0 group-active:opacity-100 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-primary/10 to-transparent" />
             </motion.div>
           ))}
@@ -102,7 +105,7 @@ const Skills = () => {
               onClick={() => setShowAll(!showAll)}
               className="px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
             >
-              {showAll ? 'Show Less' : `Show All (${uniqueSkills.length})`}
+              {showAll ? 'Show Less' : `Show All (${uniqueSkills.length - maxItemsToShow})`}
             </button>
           </div>
         )}
