@@ -24,16 +24,16 @@ export default function Home() {
       <div className="sr-only">
         <h1>Hasan Ashab - DevOps Engineer and Cloud Specialist Portfolio</h1>
         <p>
-          Welcome to my professional portfolio. I am a DevOps engineer and cloud specialist 
-          with expertise in AWS, Kubernetes, Docker, CI/CD pipelines, infrastructure automation, 
+          Welcome to my professional portfolio. I am a DevOps engineer and cloud specialist
+          with expertise in AWS, Kubernetes, Docker, CI/CD pipelines, infrastructure automation,
           and scalable cloud solutions. Browse my projects, skills, and professional experience.
         </p>
       </div>
-      
+
       <div className="flex flex-col gap-10">
         <Hero />
         <Skills />
-        {/* <ResumeSection /> */}
+        <ResumeSection />
         <Timeline />
         <CertificationsSection />
         <Projects />
