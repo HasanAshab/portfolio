@@ -97,6 +97,48 @@
   animation: float 6s ease-in-out infinite;
 }
 
+/* Hero Specific Animations */
+@keyframes hero-glow {
+  0%, 100% { 
+    box-shadow: 0 0 30px oklch(var(--primary) / 0.3);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 60px oklch(var(--primary) / 0.5);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes text-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero-glow {
+  animation: hero-glow 4s ease-in-out infinite;
+}
+
+.gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(var(--primary) / 0.4),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: text-shimmer 3s ease-in-out infinite;
+}
+
 /* Pulse Animation */
 @keyframes pulse-glow {
   0%, 100% { 

@@ -92,10 +92,26 @@ const ContactUs: FC = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-background text-foreground transition-colors">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative py-20 bg-background text-foreground transition-colors overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 -z-10">
+        {/* Floating Geometric Shapes */}
+        <div className="absolute top-20 left-12 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-60 right-16 w-20 h-20 bg-blue-500/20 rounded-lg rotate-45 animate-bounce"></div>
+        <div className="absolute bottom-40 left-1/3 w-16 h-16 bg-primary/15 rounded-full animate-ping"></div>
+        <div className="absolute bottom-20 right-1/4 w-24 h-24 bg-blue-400/10 rounded-lg rotate-12 float-animation"></div>
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        
+        {/* Gradient Orbs */}
+        <div className="absolute top-1/4 right-1/2 translate-x-1/2 w-96 h-96 bg-gradient-to-r from-primary/20 via-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-l from-blue-400/15 via-primary/10 to-transparent rounded-full blur-2xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          className="max-w-7xl mx-auto bg-muted/50 backdrop-blur-lg rounded-none p-8 sm:p-10 shadow-2xl border border-border"
+          className="max-w-7xl mx-auto bg-card/60 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 sm:p-10 shadow-2xl"
           variants={cardVariants}
           initial="hidden"
           animate="visible"
@@ -108,9 +124,11 @@ const ContactUs: FC = () => {
               initial="hidden"
               animate="visible"
             >
-              <h2 className="text-4xl font-extrabold">Connect With Me</h2>
+              <h2 className="text-4xl font-extrabold bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent">
+                Connect With Me
+              </h2>
               <p className="text-muted-foreground leading-relaxed text-base">
-                Have a project in mind or a question? Reach out and let&apos;s turn your ideas into
+                Have a project in mind or a question? Reach out and let's turn your ideas into
                 reality.
               </p>
 

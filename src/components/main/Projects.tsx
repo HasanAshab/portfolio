@@ -138,22 +138,38 @@ const Projects = () => {
   const totalProjects = projectsData.length // only added: data to show
 
   return (
-    <section id="projects" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="relative py-20 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 -z-10">
+        {/* Floating Geometric Shapes */}
+        <div className="absolute top-32 left-16 w-28 h-28 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-80 right-24 w-20 h-20 bg-blue-500/20 rounded-lg rotate-45 animate-bounce"></div>
+        <div className="absolute bottom-60 left-1/3 w-16 h-16 bg-primary/15 rounded-full animate-ping"></div>
+        <div className="absolute bottom-32 right-1/4 w-24 h-24 bg-blue-400/10 rounded-lg rotate-12 float-animation"></div>
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        
+        {/* Gradient Orbs */}
+        <div className="absolute top-1/4 right-1/2 translate-x-1/2 w-96 h-96 bg-gradient-to-r from-primary/20 via-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-l from-blue-400/15 via-primary/10 to-transparent rounded-full blur-2xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text ">My Projects</h1>
-          <p className="text-muted-foreground mt-4 max-w-3xl mx-auto text-base font-semibold md:text-lg italic">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent mb-4">
+            My Projects
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-3">
             A collection of innovative projects showcasing technical expertise & creativity.
           </p>
-
-          {/* Minimal, non-interactive display of total projects (no extra features) */}
-          <p className="text-sm  mt-3 font-semibold">
+          <p className="text-sm text-muted-foreground font-medium">
             Total projects: {totalProjects}
           </p>
         </motion.div>
@@ -161,36 +177,38 @@ const Projects = () => {
         {/* Tag Filter Section */}
         <motion.div 
           className="mb-12"
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="flex flex-col items-center">
-            <div className="flex items-center gap-2 mb-4">
-              <Tags className="h-5 w-5" />
-              <h3 className="text-lg font-medium">Filter by tags</h3>
-              {selectedTags.length > 0 && (
-                <button 
-                  onClick={clearFilters}
-                  className="text-sm text-muted-foreground hover:text-foreground ml-2 underline"
-                >
-                  Clear all
-                </button>
-              )}
-            </div>
-            
-            <div className="flex flex-wrap justify-center gap-2 max-w-2xl">
-              {allTags.map(tag => (
-                <Badge
-                  key={tag}
-                  variant={selectedTags.includes(tag) ? "default" : "outline"}
-                  className="cursor-pointer px-3 py-1 rounded-full transition-all"
-                  onClick={() => toggleTag(tag)}
-                >
-                  {tag}
-                </Badge>
-              ))}
+            <div className="relative bg-card/60 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 shadow-lg">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <Tags className="h-5 w-5 text-primary" />
+                <h3 className="text-lg font-medium">Filter by tags</h3>
+                {selectedTags.length > 0 && (
+                  <button 
+                    onClick={clearFilters}
+                    className="text-sm text-muted-foreground hover:text-primary ml-2 underline transition-colors"
+                  >
+                    Clear all
+                  </button>
+                )}
+              </div>
+              
+              <div className="flex flex-wrap justify-center gap-2 max-w-2xl">
+                {allTags.map(tag => (
+                  <Badge
+                    key={tag}
+                    variant={selectedTags.includes(tag) ? "default" : "outline"}
+                    className="cursor-pointer px-3 py-1 rounded-full transition-all hover:scale-105 hover:shadow-md"
+                    onClick={() => toggleTag(tag)}
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>

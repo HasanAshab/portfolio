@@ -49,70 +49,116 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative flex flex-col items-center justify-center gap-12 py-16 px-4 sm:px-8 min-h-[600px] bg-gradient-to-br from-background to-muted"
+      className="relative flex flex-col items-center justify-center gap-12 py-20 px-4 sm:px-8 min-h-[600px] overflow-hidden"
       aria-labelledby="skills-heading"
     >
-      <div className="absolute inset-0 z-[-1] opacity-10 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_20%,_theme(colors.blue.400_/_20%),_transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_20%,_theme(colors.blue.600_/_20%),_transparent_70%)]" />
-        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_80%_80%,_theme(colors.blue.400_/_15%),_transparent_70%)] dark:bg-[radial-gradient(circle_at_80%_80%,_theme(colors.blue.600_/_15%),_transparent_70%)]" />
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 -z-10">
+        {/* Floating Geometric Shapes */}
+        <div className="absolute top-20 left-10 w-24 h-24 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-blue-500/20 rounded-lg rotate-45 animate-bounce"></div>
+        <div className="absolute bottom-32 left-1/4 w-12 h-12 bg-primary/15 rounded-full animate-ping"></div>
+        <div className="absolute bottom-20 right-1/3 w-20 h-20 bg-blue-400/10 rounded-lg rotate-12 float-animation"></div>
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        
+        {/* Gradient Orbs */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-80 h-80 bg-gradient-to-r from-primary/20 via-blue-500/10 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-gradient-to-l from-blue-400/15 via-primary/10 to-transparent rounded-full blur-2xl"></div>
       </div>
 
-      <div className="text-center max-w-3xl">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="text-center max-w-3xl relative z-10"
+      >
         <h2
           id="skills-heading"
-          className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground"
+          className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent mb-4"
         >
           Technical Skills
         </h2>
-        <p className="mt-2 text-muted-foreground font-semibold text-sm italic">
-          A curated selection of my expertise in devops and backend development
+        <p className="text-lg text-muted-foreground font-medium">
+          A curated selection of my expertise in DevOps and backend development
         </p>
-      </div>
+      </motion.div>
 
-      <div className="w-full max-w-6xl">
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="w-full max-w-6xl relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+        >
           {skillsToShow.map((skill, index) => (
             <motion.div
               key={skill.skill_name}
-              className="group relative flex flex-col items-center p-4 rounded-xl border bg-card hover:bg-accent transition-all duration-300 transform hover:-translate-y-1"
+              className="group relative flex flex-col items-center p-4 rounded-xl bg-card/60 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:bg-card/80 transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-xl"
               role="listitem"
               aria-label={skill.skill_name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="flex flex-col items-center gap-3">
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-primary/20 via-blue-500/10 to-transparent blur-sm"></div>
+              
+              <div className="relative flex flex-col items-center gap-3 z-10">
                 <SkillDataProvider
                   src={skill.Image}
-                  width={30}
-                  height={30}
+                  width={32}
+                  height={32}
                   index={index}
-                  className="group-active:scale-110 group-hover:scale-110 transition-transform duration-200"
+                  className="group-hover:scale-110 transition-transform duration-300"
                 />
-                {/* Skill name permanently displayed below the icon */}
                 <span className="text-xs font-medium text-foreground text-center leading-tight line-clamp-2">
                   {skill.skill_name}
                 </span>
               </div>
-              <div className="absolute inset-0 rounded-xl opacity-0 group-active:opacity-100 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-primary/10 to-transparent" />
+              
+              {/* Animated border */}
+              <div className="absolute inset-0 rounded-xl border-2 border-primary/0 group-hover:border-primary/30 transition-all duration-300"></div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Show All / Show Less Button */}
         {uniqueSkills.length > maxItemsToShow && (
-          <div className="mt-8 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-12 text-center"
+          >
             <button
               onClick={() => setShowAll(!showAll)}
-              className="px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+              className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-500 hover:from-blue-500 hover:to-primary text-primary-foreground px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
-              {showAll ? 'Show Less' : `Show All (${uniqueSkills.length - maxItemsToShow})`}
+              <div className="relative z-10">
+                {showAll ? 'Show Less' : `Show All (${uniqueSkills.length - maxItemsToShow})`}
+              </div>
+              <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </button>
-          </div>
+          </motion.div>
         )}
 
-        <p className="mt-8 text-center text-sm text-muted-foreground italic">
-          …and plenty more technologies I&apos;m exploring & mastering every day.
-        </p>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-12 text-center text-base text-muted-foreground"
+        >
+          …and plenty more technologies I'm exploring & mastering every day.
+        </motion.p>
       </div>
     </section>
   )
