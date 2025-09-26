@@ -86,7 +86,7 @@ export const TimelineElement: FC<{ item: TimelineItem; index: number }> = ({ ite
         />
       )}
       <div>
-        <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
+        <h3 title={item.title} className="text-lg font-semibold text-foreground">{item.title}</h3>
         <p className="text-sm text-muted-foreground">
           {item.company} • {item.location}
         </p>
@@ -150,7 +150,7 @@ const Timeline: FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent mb-4">
+          <h1 title="Professional Experience & Projects" className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent mb-4">
             Professional Experience & Projects
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

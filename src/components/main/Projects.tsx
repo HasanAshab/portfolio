@@ -163,7 +163,7 @@ const Projects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent mb-4">
+          <h1 title="My Projects" className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent mb-4">
             My Projects
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-3">
@@ -186,9 +186,10 @@ const Projects = () => {
             <div className="relative bg-card/60 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 shadow-lg">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <Tags className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-medium">Filter by tags</h3>
+                <h3 title="Filter by tags" className="text-lg font-medium">Filter by tags</h3>
                 {selectedTags.length > 0 && (
                   <button 
+                    title="Clear all filters"
                     onClick={clearFilters}
                     className="text-sm text-muted-foreground hover:text-primary ml-2 underline transition-colors"
                   >
@@ -201,6 +202,7 @@ const Projects = () => {
                 {allTags.map(tag => (
                   <Badge
                     key={tag}
+                    title={`Filter by ${tag} (Project)`}
                     variant={selectedTags.includes(tag) ? "default" : "outline"}
                     className="cursor-pointer px-3 py-1 rounded-full transition-all hover:scale-105 hover:shadow-md"
                     onClick={() => toggleTag(tag)}
@@ -231,6 +233,7 @@ const Projects = () => {
                     <div className="flex flex-wrap gap-3 ">
                       <Badge asChild variant="secondary" className="gap-1 rounded-full">
                         <a
+                          title={`View ${project.title} on GitHub`}
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -243,6 +246,7 @@ const Projects = () => {
 
                       {"live" in project && (
                         <a
+                          title={`View ${project.title} live demo`}
                           href={project.live as string}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -254,6 +258,7 @@ const Projects = () => {
                       )}
                       {"video" in project && (
                         <a
+                          title={`Watch ${project.title} video demo`}
                           href={project.video as string}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -264,6 +269,7 @@ const Projects = () => {
                       )}
                       {"blog" in project && (
                         <a
+                          title={`Read ${project.title} blog post`}
                           href={project.blog as string}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -294,6 +300,7 @@ const Projects = () => {
               {isFifthProject && (
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                   <button 
+                    title={`Show All Projects (${filteredProjects.length - 4})`}
                     onClick={toggleShowAll}
                     className="px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors shadow-lg"
                   >
@@ -318,6 +325,7 @@ const Projects = () => {
         {showAll && filteredProjects.length > 5 && (
           <div className="col-span-full text-center mt-8">
             <button 
+              title="Show Less Projects"
               onClick={toggleShowAll}
               className="px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
             >

@@ -51,7 +51,7 @@ const ResumeSection = () => {
         viewport={{ once: true }}
         className="text-center mb-10 relative z-10"
       >
-        <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent tracking-tight mb-4">
+        <h2 title="My Resume" className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent tracking-tight mb-4">
           My Resume
         </h2>
         <p className="text-lg text-muted-foreground">
@@ -80,6 +80,7 @@ const ResumeSection = () => {
             <div className="flex flex-col items-center justify-center h-full p-8 text-center">
               <p className="text-destructive text-lg mb-4">{error}</p>
               <motion.a
+                title="View resume on Google Docs"
                 href={googleDocsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -111,6 +112,7 @@ const ResumeSection = () => {
         className="mt-12 flex flex-wrap gap-4 justify-center relative z-10"
       >
         <motion.a
+          title="Download resume as PDF"
           href={pdfUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -126,6 +128,7 @@ const ResumeSection = () => {
         </motion.a>
 
         <motion.a
+          title="View resume in Google Docs"
           href={googleDocsUrl}
           target="_blank"
           rel="noopener noreferrer"

@@ -121,10 +121,29 @@ export const NavItems = ({ items, className, isScrolled, onItemClick }: NavItems
     >
       {items.map((item, idx) => (
         <a
+          title={`Navigate to ${item.name}`}
           onMouseEnter={() => setHovered(idx)}
           onClick={(e) => {
             e.preventDefault()
             onItemClick?.()
+            
+            // Track navigation click
+            if (typeof window !== 'undefined') {
+              fetch('/api/analytics/track', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  event_type: 'click',
+                  element_id: `nav-${item.name.toLowerCase()}`,
+                  element_text: `Nav: ${item.name}`,
+                  page_path: window.location.pathname,
+                  user_agent: navigator.userAgent,
+                  session_id: sessionStorage.getItem('analytics_session_id') || `session_${Date.now()}`,
+                  timestamp: new Date().toISOString(),
+                }),
+              }).catch(console.error);
+            }
+            
             document.getElementById(item.link.slice(1))?.scrollIntoView({ behavior: 'smooth' })
           }}
           className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
@@ -214,12 +233,14 @@ export const MobileNavToggle = ({
     <>
       {isOpen ? (
         <IconX
+          title="Close mobile menu"
           data-testid="mobile-toggle"
           className={cn('text-black dark:text-white', className)}
           onClick={onClick}
         />
       ) : (
         <IconMenu2
+          title="Open mobile menu"
           data-testid="mobile-toggle"
           className={cn('text-black dark:text-white', className)}
           onClick={onClick}
@@ -232,6 +253,7 @@ export const MobileNavToggle = ({
 export const NavbarLogo = ({ isScrolled }: { isScrolled: boolean }) => {
   return (
     <a
+      title="Navigate to About section"
       href="#about"
       className="group flex items-center space-x-3"
       aria-label="Navigate to About section"
@@ -244,7 +266,7 @@ export const NavbarLogo = ({ isScrolled }: { isScrolled: boolean }) => {
         className="rounded-full"
       />
       {!isScrolled && (
-        <span className="text-lg font-bold group-hover:text-red-500 transition-colors">
+        <span title="Hasan Ashab" className="text-lg font-bold group-hover:text-red-500 transition-colors">
           Hasan Ashab
         </span>
       )}
@@ -281,6 +303,7 @@ export const NavbarButton = ({
   return (
     <Tag
       href={href ?? undefined}
+      target="_blank"
       className={cn(baseStyles, variantStyles[variant], className)}
       {...props}
     >

@@ -77,6 +77,7 @@ const Skills = () => {
       >
         <h2
           id="skills-heading"
+          title="Technical Skills"
           className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent mb-4"
         >
           Technical Skills
@@ -97,6 +98,7 @@ const Skills = () => {
           {skillsToShow.map((skill, index) => (
             <motion.div
               key={skill.skill_name}
+              title={skill.skill_name}
               className="group relative flex flex-col items-center p-4 rounded-xl bg-card/60 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:bg-card/80 transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-xl"
               role="listitem"
               aria-label={skill.skill_name}
@@ -139,6 +141,7 @@ const Skills = () => {
             className="mt-12 text-center"
           >
             <button
+              title={showAll ? 'Show Less Skills' : `Show All Skills (${uniqueSkills.length - maxItemsToShow})`}
               onClick={() => setShowAll(!showAll)}
               className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-500 hover:from-blue-500 hover:to-primary text-primary-foreground px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >

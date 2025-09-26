@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next';
 import Footer from '@/components/main/Footer'
 import { Navbar } from '@/components/main/Navbar'
 import { ThemeProvider } from '@/components/theme-provider'
+import { AnalyticsProvider } from '@/components/analytics/AnalyticsProvider'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
@@ -140,12 +141,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <main role="main">
-            {children}
-          </main>
+          <AnalyticsProvider>
+            <Navbar />
+            <main role="main">
+              {children}
+            </main>
+            <Footer />
+          </AnalyticsProvider>
         </ThemeProvider>
-        <Footer />
         <Analytics />
       </body>
     </html>

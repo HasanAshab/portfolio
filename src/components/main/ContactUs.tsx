@@ -124,7 +124,7 @@ const ContactUs: FC = () => {
               initial="hidden"
               animate="visible"
             >
-              <h2 className="text-4xl font-extrabold bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent">
+              <h2 title="Connect With Me" className="text-4xl font-extrabold bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent">
                 Connect With Me
               </h2>
               <p className="text-muted-foreground leading-relaxed text-base">
@@ -137,6 +137,7 @@ const ContactUs: FC = () => {
                   <FaEnvelope className="text-primary text-lg" />
                   <span className="text-sm font-medium select-text">hasanashab.18205@gmail.com</span>
                   <button
+                    title="Copy email address"
                     onClick={() => copyToClipboard('hasanashab.18205@gmail.com', 'Email')}
                     className="text-muted-foreground hover:text-primary transition"
                     aria-label="Copy email"
@@ -148,6 +149,7 @@ const ContactUs: FC = () => {
                   <FaSquarePhone className="text-primary text-lg" />
                   <span className="text-sm font-medium select-text">+880 16273 18919</span>
                   <button
+                    title="Copy phone number"
                     onClick={() => copyToClipboard('+880 16273 18919', 'Phone number')}
                     className="text-muted-foreground hover:text-primary transition"
                     aria-label="Copy phone number"
@@ -212,6 +214,7 @@ const ContactUs: FC = () => {
                   />
                 </motion.div>
                 <motion.button
+                  title={isSubmitting ? 'Sending message...' : 'Send message'}
                   type="submit"
                   className={cn(
                     buttonVariants({

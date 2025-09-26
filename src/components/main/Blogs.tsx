@@ -104,7 +104,7 @@ export function BlogsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent mb-4">
+          <h2 title="My Recent Blogs" className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-blue-500 bg-clip-text text-transparent mb-4">
             My Recent Blogs ✍️
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -125,9 +125,10 @@ export function BlogsSection() {
               <div className="relative bg-card/60 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 shadow-lg">
                 <div className="flex items-center justify-center gap-2 mb-4">
                   <Tags className="h-5 w-5 text-primary" />
-                  <h3 className="text-lg font-medium">Filter by tags</h3>
+                  <h3 title="Filter by tags" className="text-lg font-medium">Filter by tags</h3>
                   {selectedTags.length > 0 && (
                     <button 
+                      title="Clear all filters"
                       onClick={clearFilters}
                       className="text-sm text-muted-foreground hover:text-primary ml-2 underline transition-colors"
                     >
@@ -140,6 +141,7 @@ export function BlogsSection() {
                   {allTags.map(tag => (
                     <Badge
                       key={tag}
+                      title={`Filter by ${tag} (Blog)`}
                       variant={selectedTags.includes(tag) ? "default" : "outline"}
                       className="cursor-pointer px-3 py-1 rounded-full transition-all hover:scale-105 hover:shadow-md"
                       onClick={() => toggleTag(tag)}
@@ -209,6 +211,7 @@ export function BlogsSection() {
             className="mt-12 text-center"
           >
             <a
+              title="Read all blogs on Dev.to"
               href="https://dev.to/hasan_ashab"
               target="_blank"
               rel="noopener noreferrer"

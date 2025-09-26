@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { FC, useEffect, useState } from 'react'
 import { FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { RxGithubLogo } from 'react-icons/rx'
+import { TrackableElement, TrackableContact } from '@/components/analytics/TrackableElement'
 
 const Footer: FC = () => {
   const [visitorCount, setVisitorCount] = useState<number>(0)
@@ -79,7 +80,7 @@ const Footer: FC = () => {
           animate="visible"
         >
           <motion.div className="space-y-4" variants={childVariants}>
-            <h1 className="text-2xl font-extrabold bg-clip-text">Hasan Ashab</h1>
+            <h1 title="Hasan Ashab" className="text-2xl font-extrabold bg-clip-text">Hasan Ashab</h1>
             <p className="text-sm text-muted-foreground leading-relaxed">
               DevOps & Cloud Engineer specializing in AWS, Kubernetes, Docker, and CI/CD automation. 
               Building scalable infrastructure aligned with company requirements.
@@ -87,60 +88,65 @@ const Footer: FC = () => {
           </motion.div>
 
           <motion.div className="space-y-4" variants={childVariants}>
-            <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+            <h2 title="Quick Links" className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               Quick Links
             </h2>
             <ul className="space-y-2 text-sm">
               {quickLinks.map((item) => (
                 <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="hover:text-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary"
-                    aria-label={`Navigate to ${item.name} section`}
-                  >
-                    {item.name}
-                  </a>
+                  <TrackableElement elementId={`footer-nav-${item.name.toLowerCase()}`} elementText={`Footer: ${item.name}`}>
+                    <a
+                      href={item.href}
+                      className="hover:text-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary"
+                      aria-label={`Navigate to ${item.name} section`}
+                    >
+                      {item.name}
+                    </a>
+                  </TrackableElement>
                 </li>
               ))}
             </ul>
           </motion.div>
 
           <motion.div className="space-y-4" variants={childVariants}>
-            <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+            <h2 title="Services" className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               Services
             </h2>
             <ul className="space-y-2 text-sm">
               {servicesLinks.map((item) => (
                 <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="hover:text-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary"
-                    aria-label={`Learn about ${item.name}`}
-                  >
-                    {item.name}
-                  </a>
+                  <TrackableElement elementId={`footer-service-${item.name.toLowerCase().replace(/\s+/g, '-')}`} elementText={`Service: ${item.name}`}>
+                    <a
+                      href={item.href}
+                      className="hover:text-primary transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary"
+                      aria-label={`Learn about ${item.name}`}
+                    >
+                      {item.name}
+                    </a>
+                  </TrackableElement>
                 </li>
               ))}
             </ul>
           </motion.div>
 
           <motion.div className="space-y-4" variants={childVariants}>
-            <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+            <h2 title="Connect" className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               Connect
             </h2>
             <div className="flex flex-wrap gap-3">
               {socialLinks.map((link) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 bg-muted rounded-full hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  aria-label={`Visit my ${link.label} profile`}
-                >
-                  {link.icon}
-                </motion.a>
+                <TrackableContact key={link.label} method={`footer-${link.label.toLowerCase()}`}>
+                  <motion.a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-10 h-10 bg-muted rounded-full hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition-all duration-300"
+                    whileHover={{ scale: 1.2, rotate: 5 }}
+                    aria-label={`Visit my ${link.label} profile`}
+                  >
+                    {link.icon}
+                  </motion.a>
+                </TrackableContact>
               ))}
             </div>
             <div className="mt-4">

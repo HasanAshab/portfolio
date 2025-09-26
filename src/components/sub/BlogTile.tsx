@@ -31,11 +31,11 @@ export function BlogTile({
         />
       )}
       <div>
-        <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-100">{title}</h3>
+        <h3 title={title} className="text-lg font-semibold text-zinc-800 dark:text-zinc-100">{title}</h3>
         <p className="text-sm text-zinc-500 dark:text-zinc-400">{excerpt}</p>
       </div>
 
-      <Button onClick={onRead} variant="default" className="shrink-0 rounded-none">
+      <Button title={`Read: ${title}`} onClick={onRead} variant="default" className="shrink-0 rounded-none">
         Read
       </Button>
     </div>

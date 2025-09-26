@@ -8,6 +8,9 @@ import Timeline from '@/components/main/Timeline'
 import { Toaster } from 'react-hot-toast'
 import { Metadata } from 'next'
 import CertificationsSection from '@/components/main/Certifications'
+import { AnalyticsTestButtons } from '@/components/analytics/AnalyticsTestButtons'
+import { AnalyticsDebug } from '@/components/analytics/AnalyticsDebug'
+import InteractiveWrapper from '@/components/main/InteractiveWrapper'
 
 export const metadata: Metadata = {
   title: 'Hasan Ashab - DevOps & Cloud Engineer Portfolio | AWS, Kubernetes, Docker',
@@ -19,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen min-w-screen">
+    <div className="min-h-screen min-w-screen" >
       {/* Hidden SEO content for better indexing */}
       <div className="sr-only">
         <h1>Hasan Ashab - DevOps Engineer and Cloud Specialist Portfolio</h1>
@@ -30,7 +33,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="flex flex-col gap-10">
+      <InteractiveWrapper>
         <Hero />
         <Skills />
         <ResumeSection />
@@ -40,7 +43,10 @@ export default function Home() {
         <BlogsSection />
         <ContactUs />
         <Toaster position="bottom-right" />
-      </div>
+      </InteractiveWrapper>
+      
+      {/* Temporary test components for analytics - remove in production */}
+      {/* <AnalyticsDebug /> */}
     </div>
   )
 }
