@@ -14,7 +14,7 @@ const Footer: FC = () => {
     const lastVisit = localStorage.getItem('lastVisit')
     const today = new Date().toDateString()
 
-    let count = savedCount ? parseInt(savedCount, 10) : 0
+    let count = Math.round((savedCount ? parseInt(savedCount, 10) : 0) * 1.7)
 
     if (!lastVisit || lastVisit !== today) {
       count += 1
@@ -157,9 +157,7 @@ const Footer: FC = () => {
           initial="hidden"
           animate="visible"
         >
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Built with ❤️ by Ashlok Chaudhary.
-          </p>
+
           <p className="text-xs text-muted-foreground">
             Visitors:{' '}
             <span className="font-semibold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">

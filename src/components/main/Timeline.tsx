@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { FC, JSX } from 'react'
 import Image from 'next/image'
 import { Timeline as TimelineComponent } from '@/components/ui/timeline'
-import { FaBriefcase, FaBuilding, FaCode, FaLaptopCode } from 'react-icons/fa'
+import { FaBook, FaCode, FaLaptopCode } from 'react-icons/fa'
 
 export interface TimelineItem {
   id: number
@@ -37,6 +37,36 @@ export const timelineData: TimelineItem[] = [
       "Deploying applications to cloud environments (AWS & Azure)",
       "Applying Infrastructure as Code (IaC) principles with Terraform and Ansible",
       "Configuring monitoring & observability using Prometheus and Grafana",
+    ],
+    icon: <FaCode className="w-6 h-6 text-primary" />,
+    companyIcon: <FaLaptopCode className="w-8 h-8 text-blue-500" />,
+  },
+  {
+    id: 2,
+    type: 'project',
+    title: 'DevOps Independent Projects',
+    company: 'Self-Driven Projects',
+    location: 'Remote',
+    imageURL: '/devops-independent-timeline.png',
+    date: 'Apr 2024 - Aug 2025',
+    description: 'Focused on upskilling in DevOps and Cloud by building personal projects and labs.',
+    achievements: [],
+    icon: <FaBook className="w-6 h-6 text-secondary" />,
+    companyIcon: <FaLaptopCode className="w-8 h-8 text-gray-500" />,
+  },
+  {
+    id: 3,
+    type: 'work',
+    title: 'Backend Developer (Freelance)',
+    company: 'Fiverr',
+    location: 'Remote',
+    imageURL: '/fiverr.png',
+    date: 'Feb 2021 - Mar 2024',
+    description: 'Developed RESTful APIs, databases, and web applications for clients.',
+    achievements: [
+      'Built and maintained RESTful APIs with Django REST Framework and Node.js',
+      'Designed database schemas (MySQL, PostgreSQL) and implemented authentication/authorization (JWT, OAuth2)',
+      'Deployed projects on AWS/DigitalOcean with basic CI pipelines for delivery',
     ],
     icon: <FaCode className="w-6 h-6 text-primary" />,
     companyIcon: <FaLaptopCode className="w-8 h-8 text-blue-500" />,
