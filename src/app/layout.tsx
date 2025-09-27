@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://hasanashab.vercel.app',
+    url: 'https://hasan-ashab.vercel.app',
     title: 'Hasan Ashab - DevOps & Cloud Engineer Portfolio',
     description: 'Experienced DevOps and Cloud Engineer specializing in AWS, Kubernetes, Docker, and CI/CD. View my portfolio showcasing cloud infrastructure projects.',
     siteName: 'Hasan Ashab Portfolio',
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     creator: '@hasanashab',
   },
   alternates: {
-    canonical: 'https://hasanashab.vercel.app',
+    canonical: 'https://hasan-ashab.vercel.app',
   },
   verification: {
     google: 'your-google-verification-code', // Add your Google Search Console verification code
@@ -95,8 +95,8 @@ export default function RootLayout({
     name: 'Hasan Ashab',
     jobTitle: 'DevOps & Cloud Engineer',
     description: 'Experienced DevOps and Cloud Engineer specializing in AWS, Kubernetes, Docker, and CI/CD automation',
-    url: 'https://hasanashab.vercel.app',
-    image: 'https://hasanashab.vercel.app/profile-pic.jpg',
+    url: 'https://hasan-ashab.vercel.app',
+    image: 'https://hasan-ashab.vercel.app/profile-pic.jpg',
     sameAs: [
       'https://github.com/HasanAshab',
       'https://linkedin.com/in/hasanashab', // Add your LinkedIn
@@ -128,7 +128,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <link rel="canonical" href="https://hasanashab.vercel.app" />
+        <link rel="canonical" href="https://hasan-ashab.vercel.app" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#1e40af" media="(prefers-color-scheme: dark)" />

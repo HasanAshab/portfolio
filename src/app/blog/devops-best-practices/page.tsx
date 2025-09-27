@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'devops automation'
   ],
   alternates: {
-    canonical: 'https://hasanashab.vercel.app/blog/devops-best-practices',
+    canonical: 'https://hasan-ashab.vercel.app/blog/devops-best-practices',
   },
   openGraph: {
     title: 'DevOps Best Practices 2024 - Complete Guide',

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/_next/', '/admin/'],
     },
-    sitemap: 'https://hasanashab.vercel.app/sitemap.xml',
+    sitemap: 'https://hasan-ashab.vercel.app/sitemap.xml',
   }
 }

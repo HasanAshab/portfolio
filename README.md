@@ -10,7 +10,7 @@
 
 ## 🚀 Live Demo
 
-Visit the live portfolio: [https://hasanashab.vercel.app](https://hasanashab.vercel.app)
+Visit the live portfolio: [https://hasan-ashab.vercel.app](https://hasan-ashab.vercel.app)
 
 ## 👨‍💻 About Me
 
@@ -186,7 +186,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Hasan Ashab** - DevOps & Cloud Engineer
 
-- 🌐 Website: [https://hasanashab.vercel.app](https://hasanashab.vercel.app)
+- 🌐 Website: [https://hasan-ashab.vercel.app](https://hasan-ashab.vercel.app)
 - 💼 LinkedIn: [https://linkedin.com/in/hasanashab](https://linkedin.com/in/hasanashab)
 - 🐙 GitHub: [https://github.com/HasanAshab](https://github.com/HasanAshab)
 - 📧 Email: [contact@hasanashab.dev](mailto:contact@hasanashab.dev)

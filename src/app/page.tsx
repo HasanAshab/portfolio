@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: 'Hasan Ashab - DevOps & Cloud Engineer Portfolio | AWS, Kubernetes, Docker',
   description: 'Professional DevOps and Cloud Engineer portfolio showcasing expertise in AWS, Kubernetes, Docker, CI/CD pipelines, and infrastructure automation. View my projects and experience.',
   alternates: {
-    canonical: 'https://hasanashab.vercel.app',
+    canonical: 'https://hasan-ashab.vercel.app',
   },
 }
 
