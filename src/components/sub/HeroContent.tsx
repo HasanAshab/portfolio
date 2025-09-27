@@ -155,7 +155,7 @@ const HeroContent: FC = () => {
             </NavbarButton>
           </TrackableContact>
 
-          <TrackableContact method="linkedin"  title="Visit LinkedIn profile">
+          <TrackableContact method="linkedin" title="Visit LinkedIn profile">
             <NavbarButton
               title="Visit LinkedIn profile"
               variant="secondary"

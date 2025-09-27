@@ -133,7 +133,7 @@ export const NavItems = ({ items, className, isScrolled, onItemClick }: NavItems
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                  event_type: 'click',
+                  event_type: 'clicked',
                   element_id: `nav-${item.name.toLowerCase()}`,
                   element_text: `Nav: ${item.name}`,
                   page_path: window.location.pathname,

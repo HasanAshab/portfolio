@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useRef } from 'react'
 
 type Props = {
   children: ReactNode
@@ -52,7 +52,7 @@ export default function InteractiveWrapper({ children }: Props) {
     return null
   }
 
-  const updateAnalyticsData = async (event: any) => {
+  const updateClickAnalyticsData = async (event: any) => {
     const title = findTitle(event.target)
 
     if (title) {
@@ -70,11 +70,7 @@ export default function InteractiveWrapper({ children }: Props) {
             page_path: window.location.pathname,
             user_agent: navigator.userAgent,
             session_id: sessionStorage.getItem('analytics_session_id') || `session_${Date.now()}`,
-            timestamp: new Date().toISOString(),
-            metadata: {
-              title: title,
-              interaction_type: 'click'
-            }
+            timestamp: new Date().toISOString()
           }),
         })
       } catch (error) {
@@ -83,8 +79,60 @@ export default function InteractiveWrapper({ children }: Props) {
     }
   }
 
+  const pushHoverAnalyticsData = async (titles: string[]) => {
+    if (titles.length === 0) return;
+    try {
+      const element_id = `title-[${titles.map(title => title.toLowerCase().replace(/\s+/g, '-')).join(',')}]`
+
+      await fetch('/api/analytics/track', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          event_type: 'hovered',
+          element_id,
+          element_text: titles.join(', '),
+          page_path: window.location.pathname,
+          user_agent: navigator.userAgent,
+          session_id: sessionStorage.getItem('analytics_session_id') || `session_${Date.now()}`,
+          timestamp: new Date().toISOString()
+        }),
+      })
+
+    } catch (error) {
+      console.error('Failed to send hover analytics:', error)
+    }
+  }
+
+  const titlesRef = useRef(new Set<string>());
+  const oldTitlesRef = useRef(new Set<string>());
+
+  const handleMouseMove = (event: any) => {
+    const title = findTitle(event.target);
+    if (title) {
+      titlesRef.current.add(title);
+    }
+  }
+
+  const getDifference = (setA: Set<string>, setB: Set<string>) => {
+    const difference = Array.from(setA).filter(item => !setB.has(item));
+    return difference;
+  }
+
+
+  setInterval(() => {
+    const newTitles = getDifference(titlesRef.current, oldTitlesRef.current);
+    if (newTitles.length > 0) {      
+      pushHoverAnalyticsData(newTitles);
+      newTitles.forEach(title => {
+        oldTitlesRef.current.add(title);
+      });
+    }
+  }, 5000);
+
   return (
-    <div className="flex flex-col gap-10" onClick={updateAnalyticsData}>
+    <div className="flex flex-col gap-10" onMouseMove={handleMouseMove} onClick={updateClickAnalyticsData}>
       {children}
     </div>
   )

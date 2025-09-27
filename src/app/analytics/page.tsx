@@ -390,7 +390,7 @@ export default function AnalyticsPage() {
                         </div>
                         {event.element_text && (
                           <div className="text-sm text-gray-500 mt-1">
-                            Clicked: {event.element_text}
+                            {event.element_text}
                           </div>
                         )}
                       </div>
