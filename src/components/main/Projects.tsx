@@ -50,6 +50,14 @@ const projectsData = [
     tags: ['VPS', 'Jenkins', 'GitOps', 'DevSecOps', 'Ansible', 'Docker', '🏆Contests'],
   },
   {
+    title: '2048 Game in the Cloud',
+    description: 'Transformed the classic 2048 game into a cloud-native application using AWS EKS, Docker, Terraform, GitHub Actions CI/CD, and ArgoCD to practice end-to-end DevOps workflows.',
+    imageURL: '/2048-game.png',
+    github: 'https://github.com/HasanAshab/2048-game-devops',
+    blog: 'https://dev.to/hasan_ashab/2048-in-the-cloud-devops-with-aws-argocd-1gpe',
+    tags: ['AWS', 'EKS', 'ArgoCD', 'Terraform', 'Github Actions', 'Docker', 'GitOps'],
+  },
+  {
     title: 'Three-Tier DevOps (Azure)',
     description: 'A three-tier application using Azure App Service and CI/CD. (includes HA, DR)',
     imageURL: '/three-tier-azure.png',
