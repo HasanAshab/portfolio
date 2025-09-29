@@ -1,15 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 
-interface AnalyticsEvent {
-  event_type: string;
-  element_id?: string;
-  element_text?: string;
-  page_path: string;
-  user_agent?: string;
-  timestamp: string;
-  session_id: string;
-}
 
 export async function POST(request: NextRequest) {
   try {

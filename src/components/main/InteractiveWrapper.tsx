@@ -53,6 +53,7 @@ export default function InteractiveWrapper({ children }: Props) {
   }
 
   const updateClickAnalyticsData = async (event: any) => {
+    if (process.env.NODE_ENV === 'development') return
     const title = findTitle(event.target)
 
     if (title) {
@@ -80,6 +81,7 @@ export default function InteractiveWrapper({ children }: Props) {
   }
 
   const pushHoverAnalyticsData = async (titles: string[]) => {
+    if (process.env.NODE_ENV === 'development') return
     if (titles.length === 0) return;
     try {
       const element_id = `title-[${titles.map(title => title.toLowerCase().replace(/\s+/g, '-')).join(',')}]`
