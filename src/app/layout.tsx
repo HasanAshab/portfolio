@@ -99,7 +99,7 @@ export default function RootLayout({
     image: 'https://hasan-ashab.vercel.app/profile-pic.jpg',
     sameAs: [
       'https://github.com/HasanAshab',
-      'https://linkedin.com/in/hasanashab', // Add your LinkedIn
+      'https://linkedin.com/in/hasan-ashab',
     ],
     knowsAbout: [
       'DevOps',
@@ -117,7 +117,7 @@ export default function RootLayout({
     ],
     worksFor: {
       '@type': 'Organization',
-      name: 'Freelance'
+      name: 'Elevate Labs'
     }
   }
 
