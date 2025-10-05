@@ -65,6 +65,14 @@ const projectsData = [
     tags: ['AWS', 'Terraform', 'Lambda', 'EventBridge', 'DevOps', 'Serverless'],
   },
   {
+    title: 'EC2 Automated Backup System (V2)',
+    description: 'Automated EC2 backup using AWS Backup',
+    imageURL: '/ec2-backup-system-v2.png',
+    github: 'https://github.com/HasanAshab/aws-backup-ec2-terraform',
+    blog: 'https://dev.to/hasan_ashab/why-you-should-use-aws-backup-instead-of-custom-lambda-solutions-3n02',
+    tags: ['AWS', 'Terraform', 'DevOps', 'Serverless', 'AWS Backup'],
+  },
+  {
     title: 'Hackathon Project - Chattingo',
     description: 'Full CI/CD pipeline with Jenkins, Docker and Nginx following GitOps, DevSecOps principles for a real-time chat app. Scored 34 out of 40.',
     imageURL: '/chattingo.png',
