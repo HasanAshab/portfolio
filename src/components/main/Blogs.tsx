@@ -185,7 +185,7 @@ export function BlogsSection() {
                 ? 1.7 : 1                
               return (b.engagement * bonusPerB) - (a.engagement * bonusPerA)
             })
-            .slice(0, 4)
+            .slice(0, 5)
             .map((blog, index) => (
               <motion.div
                 key={blog.id}

@@ -96,12 +96,20 @@ const projectsData = [
     tags: ['Docker']
   },
   {
+    title: 'SamerArtisan CLI',
+    description: 'A Laravel Artisan–inspired CLI framework for Node.js. Built as a personal tribute to Laravel’s elegance, it provides structured commands, interactive prompts, and scalable CLI architecture.',
+    imageURL: '/samer-artisan.jpg',
+    github: 'https://github.com/HasanAshab/samer-artisan',
+    blog: 'https://dev.to/hasan_ashab/creating-a-cli-tool-with-nodejs-5b1k',
+    tags: ['Node.js', 'CLI', 'TypeScript', 'npm'],
+  },
+  {
     title: 'Ranker API (AI)',
     description: 'A gamified Django API for self-improvement. Create challenges, earn XP, unlock titles. leaderboard. Notifications keep users engaged. (UI NOT READY YET)',
     imageURL: '/ranker-api.webp',
     github: 'https://github.com/HasanAshab/ranker-api',
     tags: ['Django'],
-  }
+  },
 ]
 
 // Extract all unique tags from projects
