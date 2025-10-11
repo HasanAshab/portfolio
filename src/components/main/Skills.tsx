@@ -83,7 +83,7 @@ const Skills = () => {
           Technical Skills
         </h2>
         <p className="text-lg text-muted-foreground font-medium">
-          A curated selection of my expertise in DevOps and backend development
+          A curated selection of my expertise in DevOps and Cloud Computing
         </p>
       </motion.div>
 
@@ -141,12 +141,12 @@ const Skills = () => {
             className="mt-12 text-center"
           >
             <button
-              title={showAll ? 'Show Less Skills' : `Show All Skills (${uniqueSkills.length - maxItemsToShow})`}
+              title={showAll ? 'Show Less Skills' : `Show All Skills`}
               onClick={() => setShowAll(!showAll)}
               className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-500 hover:from-blue-500 hover:to-primary text-primary-foreground px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               <div className="relative z-10">
-                {showAll ? 'Show Less' : `Show All (${uniqueSkills.length - maxItemsToShow})`}
+                {showAll ? 'Show Less' : `Show All (${uniqueSkills.length})`}
               </div>
               <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </button>

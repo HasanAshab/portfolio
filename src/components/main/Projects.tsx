@@ -25,20 +25,20 @@ const projectsData = [
     tags: ['AWS', 'Serverless', 'Terraform', 'Github Actions', 'DevSecOps', 'GitOps'],
   },
   {
-    title: 'Website Uptime Monitor',
-    description: 'An AWS-based monitoring system that checks website uptime, response time, and content validity every 5 minutes. Alerts via SNS and stores history in DynamoDB. Built entirely with Terraform.',
-    imageURL: '/web-uptime-monitor.png',
-    github: 'https://github.com/HasanAshab/website-uptime-monitor',
-    blog: 'https://dev.to/hasan_ashab/never-miss-a-downtime-aws-website-uptime-monitor-with-terraform-5f2o',
-    tags: ['AWS', 'Lambda', 'DynamoDB', 'SNS', 'S3', 'Terraform', 'Monitoring', 'Serverless'],
-  },
-  {
-    title: 'Retail Store DevOps (AWS)',
+    title: 'E-commerce Store DevOps',
     description: 'A microservices-based e-commerce platform using EKS + Terraform & GitOps With ArgoCD & GitHub Actions.',
     imageURL: '/retail-store.png',
     github: 'https://github.com/HasanAshab/retail-store-devops',
     blog: 'https://dev.to/hasan_ashab/productionizing-awss-retail-sample-app-with-gitops-on-eks-22f2',
     tags: ['AWS', 'Github Actions', 'Kubernetes', 'ArgoCD', 'Terraform', 'GitOps', 'DevSecOps', 'Docker'],
+  },
+  {
+    title: 'Retail Store App - Terraform Fix Contribution',
+    description: 'Contributed to TrainWithShubham open-source Retail Store Sample App by fixing the Terraform deployment issue',
+    imageURL: '/retail-store-contribution-n.png',
+    live: 'http://k8s-ingressn-ingressn-458fe101d6-c35438a11e41fed0.elb.us-west-2.amazonaws.com/',
+    github: 'https://github.com/LondheShubham153/retail-store-sample-app/pull/11',
+    tags: ['Terraform', 'DevOps', 'Open Source Contribution'],
   },
   {
     title: 'Three-Tier DevOps (AWS)',
@@ -55,6 +55,14 @@ const projectsData = [
     github: 'https://github.com/HasanAshab/2048-game-devops',
     blog: 'https://dev.to/hasan_ashab/2048-in-the-cloud-devops-with-aws-argocd-1gpe',
     tags: ['AWS', 'EKS', 'ArgoCD', 'Terraform', 'Github Actions', 'Docker', 'GitOps'],
+  },
+  {
+    title: 'Website Uptime Monitor',
+    description: 'An AWS-based monitoring system that checks website uptime, response time, and content validity every 5 minutes. Alerts via SNS and stores history in DynamoDB. Built entirely with Terraform.',
+    imageURL: '/web-uptime-monitor.png',
+    github: 'https://github.com/HasanAshab/website-uptime-monitor',
+    blog: 'https://dev.to/hasan_ashab/never-miss-a-downtime-aws-website-uptime-monitor-with-terraform-5f2o',
+    tags: ['AWS', 'Lambda', 'DynamoDB', 'SNS', 'S3', 'Terraform', 'Monitoring', 'Serverless'],
   },
   {
     title: 'EC2 Automated Backup System',
@@ -360,7 +368,7 @@ const Projects = () => {
                     onClick={toggleShowAll}
                     className="px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors shadow-lg"
                   >
-                    Show All Projects ({filteredProjects.length - 4})
+                    Show All ({filteredProjects.length}) Projects
                   </button>
                 </div>
               )}
