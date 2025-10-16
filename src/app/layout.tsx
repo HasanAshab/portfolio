@@ -62,25 +62,25 @@ export const metadata: Metadata = {
     siteName: 'Hasan Ashab Portfolio',
     images: [
       {
-        url: '/profile-pic.jpg',
+        url: '/profile-pic.png',
         width: 1200,
         height: 630,
         alt: 'Hasan Ashab - DevOps & Cloud Engineer',
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Hasan Ashab - DevOps & Cloud Engineer Portfolio',
-    description: 'Experienced DevOps and Cloud Engineer specializing in AWS, Kubernetes, Docker, and CI/CD.',
-    images: ['/profile-pic.jpg'],
-    creator: '@hasanashab',
-  },
+  // twitter: {
+  //   card: 'summary_large_image',
+  //   title: 'Hasan Ashab - DevOps & Cloud Engineer Portfolio',
+  //   description: 'Experienced DevOps and Cloud Engineer specializing in AWS, Kubernetes, Docker, and CI/CD.',
+  //   images: ['/profile-pic.png'],
+  //   creator: '@hasanashab',
+  // },
   alternates: {
     canonical: 'https://hasan-ashab.vercel.app',
   },
   verification: {
-    google: 'your-google-verification-code', // Add your Google Search Console verification code
+    google: 'wUvigUYIHyBvrQMmeBFTg5ixr4HDAdPcPPlyPJSzmc0',
   },
 }
 

@@ -259,7 +259,7 @@ export const NavbarLogo = ({ isScrolled }: { isScrolled: boolean }) => {
       aria-label="Navigate to About section"
     >
       <Image
-        src="/profile-pic.jpg"
+        src="/profile-pic.png"
         alt="Hasan Ashab"
         width={32}
         height={32}
