@@ -9,8 +9,7 @@ const ResumeSection = () => {
   const [error, setError] = useState<string | null>(null)
 
   // Convert Google Docs edit URL to embeddable format
-  const googleDocsUrl = 'https://docs.google.com/document/d/147fIVr0h67cWMlcfYRiU-DhmwO20NrS_2EeXnJaYpe4/edit?tab=t.0'
-  const documentId = googleDocsUrl.match(/\/d\/([a-zA-Z0-9-_]+)/)?.[1]
+  const documentId = '1qZgghs6C5OIRRDT0kZCRDkGJqPUezZ5Rcx58LaeQDDM'
   const embedUrl = `https://docs.google.com/document/d/${documentId}/preview`
   const pdfUrl = `https://docs.google.com/document/d/${documentId}/export?format=pdf`
 
@@ -81,7 +80,7 @@ const ResumeSection = () => {
               <p className="text-destructive text-lg mb-4">{error}</p>
               <motion.a
                 title="View resume on Google Docs"
-                href={googleDocsUrl}
+                href={embedUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -129,7 +128,7 @@ const ResumeSection = () => {
 
         <motion.a
           title="View resume in Google Docs"
-          href={googleDocsUrl}
+          href={embedUrl}
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
