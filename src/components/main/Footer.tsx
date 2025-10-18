@@ -8,24 +8,6 @@ import { RxGithubLogo } from 'react-icons/rx'
 import { TrackableElement, TrackableContact } from '@/components/analytics/TrackableElement'
 
 const Footer: FC = () => {
-  const [visitorCount, setVisitorCount] = useState<number>(0)
-
-  useEffect(() => {
-    const savedCount = localStorage.getItem('visitorCount')
-    const lastVisit = localStorage.getItem('lastVisit')
-    const today = new Date().toDateString()
-
-    let count = Math.round((savedCount ? parseInt(savedCount, 10) : 0) * 1.7)
-
-    if (!lastVisit || lastVisit !== today) {
-      count += 1
-      localStorage.setItem('visitorCount', count.toString())
-      localStorage.setItem('lastVisit', today)
-    }
-
-    setVisitorCount(count)
-  }, [])
-
   const socialLinks = [
     {
       href: 'https://github.com/HasanAshab',
@@ -155,21 +137,6 @@ const Footer: FC = () => {
               </p>
             </div>
           </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="mt-12 text-center space-y-2"
-          variants={childVariants}
-          initial="hidden"
-          animate="visible"
-        >
-
-          <p className="text-xs text-muted-foreground">
-            Visitors:{' '}
-            <span className="font-semibold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              {visitorCount.toLocaleString()}
-            </span>
-          </p>
         </motion.div>
       </div>
     </footer>
