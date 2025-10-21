@@ -32,6 +32,8 @@ export default function AnalyticsPage() {
   const [monthlyDeleteEventType, setMonthlyDeleteEventType] = useState('');
   const [monthsCount, setMonthsCount] = useState(1);
   const [monthlyDeleting, setMonthlyDeleting] = useState(false);
+  const [resumeUrl, setResumeUrl] = useState('');
+  const [downloading, setDownloading] = useState(false);
 
   const fetchData = async (authToken: string) => {
     try {
@@ -310,6 +312,36 @@ export default function AnalyticsPage() {
     eventFilter === 'all' || event.event_type === eventFilter
   ) || [];
 
+  const handleDownloadResume = async () => {
+    if (!resumeUrl.trim()) {
+      alert('Please enter a Google Docs URL');
+      return;
+    }
+
+    try {
+      setDownloading(true);
+      const response = await fetch('/api/resume/download', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url: resumeUrl }),
+      });      
+
+      if (!response.ok) {
+        throw new Error('Failed to download resume');
+      }
+
+      const result = await response.json();
+      alert('Resume downloaded successfully to /public/resume.pdf');
+    } catch (err) {      
+      setError(err instanceof Error ? err.message : 'Failed to download resume');
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   useEffect(() => {
     // Try to get token from localStorage
     const savedToken = localStorage.getItem('analytics_token');
@@ -319,6 +351,12 @@ export default function AnalyticsPage() {
     } else {
       setLoading(false);
     }
+
+    // Load cached resume URL
+    const savedResumeUrl = localStorage.getItem('resume_url');
+    if (savedResumeUrl) {
+      setResumeUrl(savedResumeUrl);
+    }
   }, []);
 
   useEffect(() => {
@@ -326,6 +364,13 @@ export default function AnalyticsPage() {
       localStorage.setItem('analytics_token', token);
     }
   }, [authenticated, token]);
+
+  useEffect(() => {
+    // Cache resume URL in localStorage
+    if (resumeUrl) {
+      localStorage.setItem('resume_url', resumeUrl);
+    }
+  }, [resumeUrl]);
 
   if (loading) {
     return (
@@ -420,6 +465,55 @@ export default function AnalyticsPage() {
             </button>
           </div>
         </div>
+
+        {/* Resume Download Section */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>Resume Management</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+              <div className="md:col-span-2">
+                <label htmlFor="resumeUrl" className="block text-sm font-medium text-gray-700 mb-1">
+                  Google Docs Resume URL
+                </label>
+                <input
+                  type="url"
+                  id="resumeUrl"
+                  value={resumeUrl}
+                  onChange={(e) => setResumeUrl(e.target.value)}
+                  placeholder="https://docs.google.com/document/d/..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Make sure the Google Doc is publicly accessible or shared with view permissions
+                </p>
+                {resumeUrl && (
+                  <p className="text-xs text-green-600 mt-1">
+                    ✓ URL cached in browser storage
+                  </p>
+                )}
+              </div>
+              <div className="space-y-2">
+                <button
+                  onClick={handleDownloadResume}
+                  disabled={downloading || !resumeUrl.trim()}
+                  className="w-full px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {downloading ? 'Downloading...' : 'Download Resume'}
+                </button>
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full px-4 py-2 text-center text-sm bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors"
+                >
+                  View Current Resume
+                </a>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {data && (
           <>
